@@ -43,35 +43,42 @@ Install Linux Mint in Lenovo D330
 1. Boot Linux Mint Installer
 2. Mount external USB storage 
 3. Open terminal and make a backup<br>
-`sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror` <br>
-> *Example: sudo dd if=/dev/mmcblk0 of="/media/mint/MyExternalStorage/Win10-d330.img" bs=4096 status=progress conv=sync,noerror*
+```
+sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror
+```
+*Example: sudo dd if=/dev/mmcblk0 of="/media/mint/MyExternalStorage/Win10-d330.img" bs=4096 status=progress conv=sync,noerror*
+
 4. If you need to restore Windows<br>
-`sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Windows Storage] bs=4096 status=progress conv=sync,noerror` <br>
+```
+sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Windows Storage] bs=4096 status=progress conv=sync,noerror
+```
 
 ## Convert micro SD to GPT System Partition
-Desde el instalador de Linux Mint
-
-Abrir gparted
-
-Con gparted seleccionar y desmontar la sdcard
-Device
-Create partition table
-gpt
-Crear una partición ext4
-Edit 
-Apply allá operations
-
+1. Boot Linux Installer
+2. Open gparted
+3. Choose micro sd card device
+4. Unmount it
+5. Remove partitions
+6. Device > Create partition table > gpt
+7. Create an ext4 partition
+8. Edit > Apply all operations
 
 ## Install Linux Mint
-Internal Storage
-/EFI boot partition 550 MB logica
-/boot 1gb primaria 1024 MB
-/ 16gb logica 16384 MB
-/usr 27gb logica 27648 MB
-/var logica resto del espacio
-/swap 4gb 4096 MB
-Sdcard
-/home resto logica
+1. Boot Linux Mint
+2. Open Installer
+3. Choose partitions:
+```
+Internal storage:
+/EFI boot partition 550 MB logic
+/boot 1024 MB primary
+/ (root) 16384 MB logic
+/usr 27648 MB logic
+/var (use all free space) logic
+/swap 4096 MB
+
+Micro sd card:
+/home (use all free space) logic
+```
 
 ## Boot Linux Mint
 Cuando termine de instalar y reinicie, si la pantalla es negra, reiniciar desmontando el teclado y se acomoda
