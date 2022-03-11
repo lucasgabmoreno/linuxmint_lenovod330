@@ -79,4 +79,7 @@ Cuando termine de instalar y reinicie, si la pantalla es negra, reiniciar desmon
 ## Update Linux Mint
 Actualizar Linux Mint
 
-
+## Thanks:
+- [Lenovo Support](https://support.lenovo.com)
+- [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
+- [Microsoft Suppor](https://support.microsoft.com)
