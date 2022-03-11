@@ -82,7 +82,7 @@ Micro sd card:
 
 ## Boot Linux Mint
 Once installed, reboot.
-If black screen, try to reboot again or unmount keyboard and rotate device.
+If black screen, try to reboot again or unmount keyboard and rotate device, or boot from USB installer and reboot again.
 
 ## Update Linux Mint
 Open terminal
@@ -100,3 +100,4 @@ If your Kernel isn't 5.4.152 or superior, you must upgrade.
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
 - [Microsoft Suppor](https://support.microsoft.com)
 - [Linux Mint Forum](https://forums.linuxmint.com)
+- [Ubuntu Kernel PPA](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
