@@ -2,6 +2,12 @@
 Install Linux Mint in Lenovo D330
 
 ## Device
+
+| Name | Solution |
+| :--- | :----------- |
+| Black screen | Turn off and boot again with grub options like "ckeck the integrity medium" or "compatibility mode" and boot normal mode again. It's an old kernel problem. Will fix it later |
+| Screen in portrait orientation | Don't force rotate in Display options, it will make black screen. Will fix when installed and kernel update. |
+
 * Model: Lenovo IdeaPad D330-10IGL
 * Proccesor: Intel Celeron N4020
 * Storage: 64Gb EMMC 5.1
@@ -24,31 +30,27 @@ Install Linux Mint in Lenovo D330
 `Power Button > Fn+F2`
 2. Disable Secure Boot
 
+## Boot Linux Mint Installer
+1. Plug Linux Mint USB Installer
+2. Boot USB 
+`Power Button > Fn+F12`
+3. Choose USB Boot
+
+| Problem | Solution |
+| :--- | :----------- |
+| Black screen | Turn off and boot again with grub options like "ckeck the integrity medium" or "compatibility mode" and boot normal mode again. It's an old kernel problem. Will fix it later |
+| Screen in portrait orientation | Don't force rotate in Display options, it will make black screen. Will fix when installed and kernel update. |
+
 ## Make Windows Backup
-Enchufar el USB
-Bootear el USB: Fn+F12
+1. Boot Linux Mint Installer
+2. Mount external USB storage 
+3. Open terminal and make a backup<br>
+`sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror` <br>
+> *Example: sudo dd if=/dev/mmcblk0 of="/media/mint/MyExternalStorage/Win10-d330.img" bs=4096 status=progress conv=sync,noerror*
+4. If you need to restore Windows<br>
+`sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Windows Storage] bs=4096 status=progress conv=sync,noerror` <br>
 
-Si aparecela pantalla negra, forzar desde el grub "ckeck the integrity medium" o con la entrada "compatibility mode"
-
-Vamos a tener que trabajar todo el tiempo con la pantalla girada
-
-Desde el instalador, montar un disco externo (disk, buscar la unidad y darle play) y hacer un backup de la unidad de Windows de 64 GB, tal como vino de fábrica
-sudo dd if=/dev/mmcblk0 of="/media/mint/Backups/Win10-d330-update.img" bs=4096 status=progress conv=sync,noerror
-
-Si necesitamos restaurar Windows mas adelante, simplemente:
-sudo dd if="/media/mint/Backups/Win10-d330.img" of=/dev/mmcblk0 bs=4096 status=progress conv=sync,noerror
-
----
-
-WINDOWS BACKUP
-
-
-
-
----
-
-MBR A GPT
-
+## Convert micro SD to GPT System Partition
 Desde el instalador de Linux Mint
 
 Abrir gparted
@@ -61,22 +63,22 @@ Crear una partición ext4
 Edit 
 Apply allá operations
 
-----
 
+## Install Linux Mint
+Internal Storage
 /EFI boot partition 550 MB logica
 /boot 1gb primaria 1024 MB
 / 16gb logica 16384 MB
 /usr 27gb logica 27648 MB
 /var logica resto del espacio
 /swap 4gb 4096 MB
-
 Sdcard
 /home resto logica
 
-----
-
+## Boot Linux Mint
 Cuando termine de instalar y reinicie, si la pantalla es negra, reiniciar desmontando el teclado y se acomoda
 
+## Update Linux Mint
 Actualizar Linux Mint
 
 
