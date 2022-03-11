@@ -3,17 +3,15 @@ Install Linux Mint in Lenovo D330
 
 ## Device
 
-| Name | Solution |
-| :--- | :----------- |
-| Black screen | Turn off and boot again with grub options like "ckeck the integrity medium" or "compatibility mode" and boot normal mode again. It's an old kernel problem. Will fix it later |
-| Screen in portrait orientation | Don't force rotate in Display options, it will make black screen. Will fix when installed and kernel update. |
+| Name | Specification |
+| :--- | :--- |
+| Model | Lenovo IdeaPad D330-10IGL |
+| Proccesor | Intel Celeron N4020 |
+| Storage | 64Gb EMMC |
+| RAM | 4Gb |
+| Micro SD CArd | 128 GB U3 |
 
-* Model: Lenovo IdeaPad D330-10IGL
-* Proccesor: Intel Celeron N4020
-* Storage: 64Gb EMMC 5.1
-* RAM: 4Gb LP4 2133
-* Micro SD Card: 128 GB U3
-* [*Complete device specifications...*](completedevicespecifications.md)
+[*Complete device specifications...*](completedevicespecifications.md)
 
 ---
 
