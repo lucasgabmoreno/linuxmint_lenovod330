@@ -15,7 +15,7 @@ Install Linux Mint in Lenovo D330
 
 ---
 
-## Update Windows, BIOS and Firmware
+## (Optional) Update Windows, BIOS and Firmware
 1. Boot Windows.
 2. [Download and install Lenovo Service Bridge](https://support.lenovo.com/solutions/ht104055).
 3. [Disable S Windows Mode](https://support.microsoft.com/en-us/windows/switching-out-of-s-mode-in-windows-4f56d9be-99ec-6983-119f-031bfb28a307).
@@ -39,7 +39,7 @@ Install Linux Mint in Lenovo D330
 | Black screen | Turn off and boot again with grub options like "ckeck the integrity medium" or "compatibility mode" and boot normal mode again. It's an old kernel problem. Will fix it later |
 | Screen in portrait orientation | Don't force rotate in Display options, it will make black screen. Will fix when installed and kernel update. |
 
-## Make Windows Backup
+## (Optional) Make a Windows Backup
 1. Boot Linux Mint Installer
 2. Mount external USB storage 
 3. Open terminal and make a backup<br>
@@ -66,7 +66,7 @@ sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Wind
 ## Install Linux Mint
 1. Boot Linux Mint
 2. Open Installer
-3. Choose partitions:
+3. Create partitions:
 ```
 Internal storage:
 /EFI boot partition 550 MB logic
@@ -81,10 +81,19 @@ Micro sd card:
 ```
 
 ## Boot Linux Mint
-Cuando termine de instalar y reinicie, si la pantalla es negra, reiniciar desmontando el teclado y se acomoda
+Once installed, reboot.
+If black screen, try to reboot again or unmount keyboard and rotate device.
 
 ## Update Linux Mint
-Actualizar Linux Mint
+Open terminal
+```
+sudo apt update
+sudo apt upgrade
+```
+
+## Upgrade Kernel
+If your Kernel isn't 5.4.152 or superior, you must upgrade.
+
 
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
