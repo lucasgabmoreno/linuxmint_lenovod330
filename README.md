@@ -83,3 +83,4 @@ Actualizar Linux Mint
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
 - [Microsoft Suppor](https://support.microsoft.com)
+- [Linux Mint Forum](https://forums.linuxmint.com)
