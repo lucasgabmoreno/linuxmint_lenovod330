@@ -87,16 +87,9 @@ If black screen, you can try:
 * Unmount keyboard and rotate device
 * Boot from USB installer and reboot again.
 
-## Update Linux Mint
-Open terminal
-```
-sudo apt update
-sudo apt upgrade
-```
-
 ## Upgrade Kernel
 Don't upgrade to a newer kernel version than 5.4.155, maybe won't work.<br>
-If you have tried a newer version and you don't have black screen problem wheen rotation, let's us know in [this issue](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/1).<br>
+If you have tried a newer version and you don't have black screen problem when rotation, let's us know in [this issue](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/1).<br>
 Open terminal
 ```
 sudo rm -rf linux*.deb
