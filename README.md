@@ -111,7 +111,7 @@ Reboot
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
-- [Microsoft Suppor](https://support.microsoft.com)
+- [Microsoft Support](https://support.microsoft.com)
 - [Linux Mint Forum](https://forums.linuxmint.com)
 - [Ubuntu Kernel PPA](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
 - [Karla's Project](https://youtu.be/vFA-phErf9o)
