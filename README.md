@@ -95,7 +95,7 @@ sudo apt upgrade
 ```
 
 ## Upgrade Kernel
-If your Kernel isn't 5.4.152 or superior, you must upgrade (don't upgrade to the [last stable kernel](https://www.kernel.org/), won't work)<br>
+Don't upgrade to 5.7 or highter, won't work<br>
 Open terminal
 ```
 sudo rm -rf linux*.deb
@@ -107,6 +107,13 @@ sudo dpgk -i linux*.deb
 sudo rm -rf linux*.deb
 ```
 Reboot
+
+## Temporary rotation fix
+Open terminal
+```
+xinput set-prop "16" --type=float "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
+xrandr -o right
+```
 
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
