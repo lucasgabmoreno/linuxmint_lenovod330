@@ -95,7 +95,8 @@ sudo apt upgrade
 ```
 
 ## Upgrade Kernel
-Don't upgrade to 5.7 or highter, won't work<br>
+Don't upgrade to a newer kernel version than 5.4.155, maybe won't work.<br>
+If you have tried a newer version and you don't have black screen problem wheen rotation, let's us know in [this issue](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/1).<br>
 Open terminal
 ```
 sudo rm -rf linux*.deb
@@ -111,8 +112,8 @@ Reboot
 ## Temporary rotation fix
 Open terminal
 ```
-xinput set-prop "16" --type=float "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 xrandr -o right
+
 ```
 
 ## Thanks:
@@ -122,3 +123,4 @@ xrandr -o right
 - [Linux Mint Forum](https://forums.linuxmint.com)
 - [Ubuntu Kernel PPA](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
 - [Karla's Project](https://youtu.be/vFA-phErf9o)
+- [Rojtberg](https://www.rojtberg.net/1652/ubuntu-on-the-lenovo-d330/)
