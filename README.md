@@ -23,21 +23,34 @@ Install Linux Mint in Lenovo D330
 5. [Open Lenovo Vantage](https://www.microsoft.com/p/lenovo-vantage/9wzdncrfj4mv?rtc=1&activetab=pivot:overviewtab) and update drivers and system.
 7. Detect your device with [Lenovo Support](https://support.lenovo.com/solutions/ht104055), download and install BIOS and EMMC Firmware update.
 
+## How to acces BIOS
+1. Turn off device (10 seconds power button)
+2. Turn on device (5 seconds power button)
+3. Inmediattely press:
+`Fn+F2`
+
+## How to access Boot Options
+1. Turn off device (10 seconds power button)
+2. Turn on device (5 seconds power button)
+3. Inmediattely press:
+`Fn+F12`
+
 ## Disable secure boot
-1. Go to BIOS <br>
-`Power Button > Fn+F2`
+1. Access BIOS
 2. Disable Secure Boot
 
-## Boot Linux Mint Installer
-1. Plug Linux Mint USB Installer
-2. Boot USB 
-`Power Button > Fn+F12`
-3. Choose USB device
+## How to Boot Linux Mint Installer
+1. Access boot options
+2. Choose USB device
 
-| Problem | Solution |
-| :--- | :----------- |
-| Black screen | Turn off and boot again with grub options like "ckeck the integrity medium" or "compatibility mode" and boot normal mode again. If same problem in installed Linux Mint, boot with USB installer and reboot again. Will fix it later |
-| Screen in portrait orientation | Don't force rotate in Display options, it will make black screen. Will fix later. |
+If black screen, you can try:
+* Reboot again
+* "ckeck the integrity medium"
+* "compatibility mode"
+(will fix later)
+
+If Screen in portrait orientation:
+Don't force rotate in Display options, it will make black screen. Will fix later.
 
 ## (Optional) Make a Windows Backup
 1. Boot Linux Mint Installer
