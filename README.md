@@ -103,7 +103,8 @@ If black screen, you can try:
 ## Fix black screen
 Upgrade kernel. Don't upgrade to a newer kernel version than 5.4.155, maybe won't work.<br>
 If you have tried a newer version and you don't have black screen problem when rotation, let's us know in [this issue](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/1).<br>
-Open terminal
+
+1. Open terminal
 ```
 sudo rm -rf linux*.deb
 sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.155/amd64/linux-headers-5.4.155-0504155-generic_5.4.155-0504155.202110200637_amd64.deb"
@@ -113,7 +114,17 @@ sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.155/amd64/
 sudo dpkg -i linux*.deb
 sudo rm -rf linux*.deb
 ```
-Shut Down and turn on (reboot could not work).
+2. Shut Down and turn on (reboot could not work).
+3. Run Mintinstall and install Grub Customizer.
+4. Open Grub Customizer > General settings > Remove all kernel parameters (quite splash).
+5. Into Advanced settings > GRUB_CMDLINE_LINUX_DEFAULT must be empty.
+6. Boot after default entry: 0 seconds.
+7. Save
+8. Open terminal
+```
+sudo upgradre-grub
+```
+9. Reboot
 
 ## Temporary rotation fix
 Open terminal
