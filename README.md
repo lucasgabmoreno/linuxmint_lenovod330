@@ -49,10 +49,9 @@ If black screen, you can try:
 * Reboot again
 * "ckeck the integrity medium"
 * "compatibility mode"
-(will fix later)
 
 If Screen in portrait orientation:
-Don't force rotate in Display options, it will make black screen. Will fix later.
+* Don't force rotate in Display options, it will make black screen.
 
 ## (Optional) Make a Windows Backup
 1. Boot Linux Mint Installer
