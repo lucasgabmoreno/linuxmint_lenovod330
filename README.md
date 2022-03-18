@@ -7,6 +7,8 @@ Install Linux Mint in Lenovo D330
 | :--- | :--- |
 | Model | Lenovo IdeaPad D330-10IGL |
 | Proccesor | Intel Celeron N4020 |
+| Graphics | Intel UHD Graphics 605 |
+| Resolution | 800x1280 |
 | Storage | 64Gb EMMC |
 | RAM | 4Gb |
 | Micro SD CArd | 128 GB U3 |
