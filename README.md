@@ -103,16 +103,15 @@ If black screen, you can try:
 * Boot from USB installer and reboot again.
 
 ## Fix black screen
-Upgrade kernel. Don't upgrade to a newer kernel version than 5.4.155, maybe won't work.<br>
-If you have tried a newer version and you don't have black screen problem when rotation, let's us know in [this issue](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/1).<br>
+If your kernel is lower than 5.4.152, you must upgrade your kernel to the latest 5.4.x. Don't upgrade to 5.5, 5.13, etc. stay in 5.4<br>
 
 1. Open terminal
 ```
 sudo rm -rf linux*.deb
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.155/amd64/linux-headers-5.4.155-0504155-generic_5.4.155-0504155.202110200637_amd64.deb"
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.155/amd64/linux-image-unsigned-5.4.155-0504155-generic_5.4.155-0504155.202110200637_amd64.deb"
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.155/amd64/linux-modules-5.4.155-0504155-generic_5.4.155-0504155.202110200637_amd64.deb"
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.155/amd64/linux-headers-5.4.155-0504155_5.4.155-0504155.202110200637_all.deb"
+sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-headers-5.4.185-0504185-generic_5.4.185-0504185.202203160950_amd64.deb"
+sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-image-unsigned-5.4.185-0504185-generic_5.4.185-0504185.202203160950_amd64.deb"
+sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-modules-5.4.185-0504185-generic_5.4.185-0504185.202203160950_amd64.deb"
+sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-headers-5.4.185-0504185_5.4.185-0504185.202203160950_all.deb"
 sudo dpkg -i linux*.deb
 sudo rm -rf linux*.deb
 ```
@@ -122,10 +121,6 @@ sudo rm -rf linux*.deb
 5. Into Advanced settings > GRUB_CMDLINE_LINUX_DEFAULT must be empty.
 6. Boot after default entry: 0 seconds.
 7. Save
-8. Open terminal
-```
-sudo upgradre-grub
-```
 9. Reboot
 
 ## Temporary rotation fix
@@ -143,3 +138,4 @@ xrandr -o right
 - [Ubuntu Kernel PPA](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
 - [Karla's Project](https://youtu.be/vFA-phErf9o)
 - [Rojtberg](https://www.rojtberg.net/1652/ubuntu-on-the-lenovo-d330/)
+- [Markus](https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61)
