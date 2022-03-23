@@ -114,13 +114,12 @@ sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/
 sudo dpkg -i linux*.deb
 sudo rm -rf linux*.deb
 ```
-2. Shut Down and turn on (reboot could not work).
-3. Run Mintinstall and install Grub Customizer.
-4. Open Grub Customizer > General settings > Remove all kernel parameters (quite splash).
-5. Into Advanced settings > GRUB_CMDLINE_LINUX_DEFAULT must be empty.
-6. Boot after default entry: 0 seconds.
-7. Save
-9. Reboot
+2. Reboot, if black screen reboot again.
+
+## Fix hwmatch
+1. Run Mintinstall and install Grub Customizer.
+2. Into Advanced settings > `GRUB_GFXPAYLOAD_LINUX=keep`
+
 
 ## Temporary rotation fix
 Open terminal
@@ -138,3 +137,4 @@ xrandr -o right
 - [Karla's Project](https://youtu.be/vFA-phErf9o)
 - [Rojtberg](https://www.rojtberg.net/1652/ubuntu-on-the-lenovo-d330/)
 - [Markus](https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61)
+- [Angelo](https://unixcop.com/fix-the-error-cant-find-the-command-hwmatch-on-grub/)
