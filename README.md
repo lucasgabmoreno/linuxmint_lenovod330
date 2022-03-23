@@ -114,11 +114,11 @@ sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/
 sudo dpkg -i linux*.deb
 sudo rm -rf linux*.deb
 ```
-2. Reboot, if black screen reboot again.
+2. Reboot (If black screen reboot again).
 
-## Fix hwmatch
-1. Run Mintinstall and install Grub Customizer.
-2. Into Advanced settings > `GRUB_GFXPAYLOAD_LINUX=keep`
+## Fix grub errors
+1. Run [Mintinstall](https://github.com/linuxmint/mintinstall) and install [Boot Repair](https://sourceforge.net/p/boot-repair/home/es/).
+2. Run Boot Repair and follow instructions.
 
 
 ## Temporary rotation fix
@@ -137,4 +137,3 @@ xrandr -o right
 - [Karla's Project](https://youtu.be/vFA-phErf9o)
 - [Rojtberg](https://www.rojtberg.net/1652/ubuntu-on-the-lenovo-d330/)
 - [Markus](https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61)
-- [Angelo](https://unixcop.com/fix-the-error-cant-find-the-command-hwmatch-on-grub/)
