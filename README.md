@@ -115,11 +115,16 @@ sudo dpkg -i linux*.deb
 sudo rm -rf linux*.deb
 ```
 2. Reboot (If black screen reboot again).
+3. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
 ## Fix grub errors
 1. Run [Mintinstall](https://github.com/linuxmint/mintinstall) and install [Boot Repair](https://sourceforge.net/p/boot-repair/home/es/).
 2. Run Boot Repair and follow instructions.
 
+## Fix firmware
+1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
+2. Move bin file into `/lib/firmware/i915`
+3. Terminal sudo ```update-initramfs -u```
 
 ## Temporary rotation fix
 Open terminal
