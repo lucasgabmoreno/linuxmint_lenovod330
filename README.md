@@ -51,7 +51,7 @@ If black screen, you can try:
 * "compatibility mode"
 
 If Screen in portrait orientation:
-* Don't force rotate in Display options, it will make black screen.
+* Don't force rotate in Display options yet, it will make black screen (will fix later).
 
 ## (Optional) Make a Windows Backup
 1. Boot Linux Mint Installer
@@ -80,7 +80,7 @@ sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Wind
 ## Install Linux Mint
 1. Boot Linux Mint
 2. Open Installer
-3. Create partitions:
+3. If you have micro SD, I recommend this partition map:
 ```
 Internal storage:
 /EFI boot partition 550 MB logic
@@ -102,7 +102,8 @@ If black screen, you can try:
 * Boot from USB installer and reboot again.
 
 ## Fix some black screen (not all)
-If your kernel is lower than 5.4.152, you must upgrade your kernel to the latest 5.4.x. Don't upgrade to 5.5, 5.13, etc. stay in 5.4<br>
+If your kernel is lower than 5.4.152, you must upgrade your kernel to the latest 5.4.x.<br>
+Don't upgrade to 5.5, 5.13, etc. wont' work. Stay in 5.4<br>
 
 1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
 2. Get into the last v5.4.x folder
@@ -124,24 +125,27 @@ sudo dpkg -i linux*.deb
 
 ## Fix firmware
 1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
-2. Move bin file into `/lib/firmware/i915`
+2. Move the bin file into `/lib/firmware/i915`
 3. Terminal sudo ```update-initramfs -u```
 
 ## Fix auto rotate
 1. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
-2. Enable execution permission whit `sudo chmod +x auto_rotate.sh`
+2. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
 3. Reboot
 
 ## Fix brightness change on every boot and rotation
 1. Move brightness to 100%
-2. Install (brightness and gamma applet)[https://cinnamon-spices.linuxmint.com/applets/view/286]
+2. Install [Brightness and Gamma Applet](https://cinnamon-spices.linuxmint.com/applets/view/286)
 3. Use this applet instead of default brightness method
 
 ## Bugs still can't fix
-1. Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5)<br>
+1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
 Temporary solution: rotate device until screen shows image.
-2. Randomly, when rotate, shows black screen. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6)<br>
+2. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
 Temporary solution: rotate device again until screen shows image.
+3. [Issue #7](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/7): Video tearing. <br>
+No solution temporary
+4. [Issue #8](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/8): Can't get into safe mode
  
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
