@@ -128,8 +128,9 @@ sudo dpkg -i linux*.deb
 3. Terminal sudo ```update-initramfs -u```
 
 ## Fix auto rotate
-Download and add [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
-Reboot
+1. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
+2. Enable execution permission whit `sudo chmod +x auto_rotate.sh`
+3. Reboot
 
 ## Fix brightness change on every boot and rotation
 1. Move brightness to 100%
