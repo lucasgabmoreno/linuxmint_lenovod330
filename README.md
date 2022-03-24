@@ -129,9 +129,13 @@ sudo dpkg -i linux*.deb
 3. Terminal sudo ```update-initramfs -u```
 
 ## Fix auto rotate
-1. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
-2. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
-3. Reboot
+1. Install IIO sensor proxy and Inotify tools, open terminal and type:
+```
+apt-get install iio-sensor-proxy inotify-tools
+```
+2. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
+3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
+4. Reboot
 
 ## Fix brightness change on every boot and rotation
 1. Move brightness to 100%
