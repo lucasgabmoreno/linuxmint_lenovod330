@@ -101,23 +101,24 @@ If black screen, you can try:
 * Unmount keyboard and rotate device
 * Boot from USB installer and reboot again.
 
-## Fix black screen
+## Fix some black screen (not all)
 If your kernel is lower than 5.4.152, you must upgrade your kernel to the latest 5.4.x. Don't upgrade to 5.5, 5.13, etc. stay in 5.4<br>
 
-1. Open terminal
+1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
+2. Get into the last v5.4.x folder
+3. From the first group of links, download:
+- linux-headers-5.4.x-generic_5.4.x_amd64.deb
+- linux-image-unsigned-5.4.x-generic_5.4.x_amd64.deb
+- linux-modules-5.4.x-generic_5.4.x_amd64.deb
+- linux-headers-5.4.x_5.4.x_all.deb
+4. In the same folder you download, open terminal and type:
 ```
-sudo rm -rf linux*.deb
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-headers-5.4.185-0504185-generic_5.4.185-0504185.202203160950_amd64.deb"
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-image-unsigned-5.4.185-0504185-generic_5.4.185-0504185.202203160950_amd64.deb"
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-modules-5.4.185-0504185-generic_5.4.185-0504185.202203160950_amd64.deb"
-sudo wget -t inf "https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4.185/amd64/linux-headers-5.4.185-0504185_5.4.185-0504185.202203160950_all.deb"
 sudo dpkg -i linux*.deb
-sudo rm -rf linux*.deb
 ```
-2. Reboot (If black screen reboot again).
-3. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
+5. Reboot (If black screen reboot again).
+6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
-## Fix grub errors
+## Fix some grub errors (not all)
 1. Run [Mintinstall](https://github.com/linuxmint/mintinstall) and install [Boot Repair](https://sourceforge.net/p/boot-repair/home/es/).
 2. Run Boot Repair and follow instructions.
 
@@ -126,13 +127,21 @@ sudo rm -rf linux*.deb
 2. Move bin file into `/lib/firmware/i915`
 3. Terminal sudo ```update-initramfs -u```
 
-## Temporary rotation fix
-Open terminal
-```
-xrandr -o right
+## Fix auto rotate
+Download and add [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
+Reboot
 
-```
+## Fix brightness change on every boot and rotation
+1. Move brightness to 100%
+2. Install (brightness and gamma applet)[https://cinnamon-spices.linuxmint.com/applets/view/286]
+3. Use this applet instead of default brightness method
 
+## Bugs still can't fix
+1. Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5)<br>
+Temporary solution: rotate device until screen shows image.
+2. Randomly, when rotate, shows black screen. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6)<br>
+Temporary solution: rotate device again until screen shows image.
+ 
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
