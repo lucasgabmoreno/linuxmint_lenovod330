@@ -122,14 +122,14 @@ sudo dpkg -i linux*.deb
 5. Reboot (If black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
-## Fix to start in landscape mode
-Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.
+## Fix start in landscape mode
+Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
 1.Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
 2. Go to the file, open terminal and type `sudo chmod +x landscape.sh` to change permissions.
 3. Reboot.
 
 ## Fix auto rotate
-Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.
+Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.<br>
 1. Install IIO sensor proxy and Inotify tools, open terminal and type:
 ```
 apt-get install iio-sensor-proxy inotify-tools
