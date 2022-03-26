@@ -101,6 +101,9 @@ If black screen, you can try:
 * Unmount keyboard and rotate device
 * Boot from USB installer and reboot again.
 
+## Update Linux Mint
+Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all software
+
 ## Fix some black screen (not all)
 If your kernel is lower than 5.4.152, you must upgrade your kernel to the latest 5.4.x.<br>
 Don't upgrade to 5.5, 5.13, etc. wont' work. Stay in 5.4<br>
