@@ -122,15 +122,6 @@ sudo dpkg -i linux*.deb
 5. Reboot (If black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
-## Fix some grub errors (not all)
-1. Run [Mintinstall](https://github.com/linuxmint/mintinstall) and install [Boot Repair](https://sourceforge.net/p/boot-repair/home/es/).
-2. Run Boot Repair and follow instructions.
-
-## Fix firmware
-1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
-2. Move the bin file into `/lib/firmware/i915`
-3. Terminal sudo ```update-initramfs -u```
-
 ## Fix auto rotate
 1. Install IIO sensor proxy and Inotify tools, open terminal and type:
 ```
@@ -138,12 +129,22 @@ apt-get install iio-sensor-proxy inotify-tools
 ```
 2. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
 3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
-4. Reboot
+4. Reboot.
 
 ## Fix brightness change on every boot and rotation
 1. Move brightness to 100%
 2. Install [Brightness and Gamma Applet](https://cinnamon-spices.linuxmint.com/applets/view/286)
 3. Use this applet instead of default brightness method
+
+## Temporary fix autorotate & landscape mode
+Tablet mode:
+- Rotate device until black screen dissapear.
+Notebook mode:
+- Open Keyboard Settings > Shortcuts > Custom Shortcuts.
+- Add new one called Landscape Refresh.
+- Use landscape script (With execution permission enabled).
+- Add a shortcut like Ctrl+Shift+L.
+- When black screen, press this shortcut until black screen dissapear.
 
 ## Bugs still can't fix
 1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
