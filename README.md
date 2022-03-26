@@ -124,15 +124,15 @@ sudo dpkg -i linux*.deb
 
 ## Fix start in landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
-1.Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
+1. Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
 2. Go to the file, open terminal and type `sudo chmod +x landscape.sh` to change permissions.
 3. Reboot.
 
 ## Fix auto rotate
 Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.<br>
-1. Install IIO sensor proxy and Inotify tools, open terminal and type:
+1. Install Inotify tools, open terminal and type:
 ```
-apt-get install iio-sensor-proxy inotify-tools
+apt-get install inotify-tools -y
 ```
 2. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
 3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
@@ -140,25 +140,25 @@ apt-get install iio-sensor-proxy inotify-tools
 
 
 ## Fix brightness change on every boot and rotation
-1. Move brightness to 100%
-2. Install [Brightness and Gamma Applet](https://cinnamon-spices.linuxmint.com/applets/view/286)
-3. Use this applet instead of default brightness method
+1. Move brightness to 100%.
+2. Install [Brightness and Gamma Applet](https://cinnamon-spices.linuxmint.com/applets/view/286).
+3. Use this applet instead of default brightness method.
 
 ## Temporary fix autorotate & landscape mode black screen
-Tablet mode:
+### Tablet mode:
 - Rotate device until black screen dissapear.
-Notebook mode:
+### Notebook mode:
 - Open Keyboard Settings > Shortcuts > Custom Shortcuts.
 - Add new one called Landscape Refresh.
 - Use [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) (With execution permission enabled).
 - Add a shortcut like Ctrl+Shift+L.
-- When black screen, press this shortcut until black screen dissapear.
+- When black screen, press Ctrl+Shift+L until black screen dissapear.
 
 ## Bugs still can't fix
 1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
-Temporary solution: rotate device until screen shows image.
+Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
 2. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
-Temporary solution: rotate device again until screen shows image.
+Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
 3. [Issue #7](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/7): Video tearing. <br>
 No solution temporary
 4. [Issue #8](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/8): Can't get into safe mode
