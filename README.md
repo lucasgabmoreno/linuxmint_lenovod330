@@ -122,7 +122,14 @@ sudo dpkg -i linux*.deb
 5. Reboot (If black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
+## Fix to start in landscape mode
+Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.
+1.Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
+2. Go to the file, open terminal and type `sudo chmod +x landscape.sh` to change permissions.
+3. Reboot.
+
 ## Fix auto rotate
+Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.
 1. Install IIO sensor proxy and Inotify tools, open terminal and type:
 ```
 apt-get install iio-sensor-proxy inotify-tools
@@ -131,18 +138,19 @@ apt-get install iio-sensor-proxy inotify-tools
 3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
 4. Reboot.
 
+
 ## Fix brightness change on every boot and rotation
 1. Move brightness to 100%
 2. Install [Brightness and Gamma Applet](https://cinnamon-spices.linuxmint.com/applets/view/286)
 3. Use this applet instead of default brightness method
 
-## Temporary fix autorotate & landscape mode
+## Temporary fix autorotate & landscape mode black screen
 Tablet mode:
 - Rotate device until black screen dissapear.
 Notebook mode:
 - Open Keyboard Settings > Shortcuts > Custom Shortcuts.
 - Add new one called Landscape Refresh.
-- Use landscape script (With execution permission enabled).
+- Use [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) (With execution permission enabled).
 - Add a shortcut like Ctrl+Shift+L.
 - When black screen, press this shortcut until black screen dissapear.
 
