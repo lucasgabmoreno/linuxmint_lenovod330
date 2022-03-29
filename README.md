@@ -122,6 +122,11 @@ sudo dpkg -i linux*.deb
 5. Reboot (If black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
+## Fix firmware
+1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
+2. Move bin file into `/lib/firmware/i915`
+3. Terminal ```sudo update-initramfs -u```
+
 ## Fix start in landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
 1. Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
