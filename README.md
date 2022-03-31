@@ -122,11 +122,6 @@ sudo dpkg -i linux*.deb
 5. Reboot (If black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
 
-## Fix firmware
-1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
-2. Move bin file into `/lib/firmware/i915`
-3. Terminal ```sudo update-initramfs -u```
-
 ## Fix start in landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
 1. Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
@@ -143,12 +138,6 @@ apt-get install inotify-tools -y
 3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
 4. Reboot.
 
-
-## Fix brightness change on every boot and rotation
-1. Move brightness to 100%.
-2. Install [Brightness and Gamma Applet](https://cinnamon-spices.linuxmint.com/applets/view/286).
-3. Use this applet instead of default brightness method.
-
 ## Temporary fix autorotate & landscape mode black screen
 ### Tablet mode:
 - Rotate device until black screen dissapear.
@@ -158,6 +147,16 @@ apt-get install inotify-tools -y
 - Use [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) (With execution permission enabled).
 - Add a shortcut like Ctrl+Shift+L.
 - When black screen, press Ctrl+Shift+L until black screen dissapear.
+
+## Fix firmware
+1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
+2. Move bin file into `/lib/firmware/i915`
+3. Terminal ```sudo update-initramfs -u```
+
+## Fix hwmatch and other errors
+1. Install Grub Customizer
+2. General settings > Kernel parameters: `quiet splash gfxpayload=800x1280 acpi=force`
+3. General settings > Advanced settings > Add: `GRUB_GFXPAYLOAD_LINUX=keep`
 
 ## Bugs still can't fix
 1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
@@ -177,3 +176,4 @@ No solution temporary
 - [Karla's Project](https://youtu.be/vFA-phErf9o)
 - [Rojtberg](https://www.rojtberg.net/1652/ubuntu-on-the-lenovo-d330/)
 - [Markus](https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61)
+- [Angelo](https://unixcop.com/fix-the-error-cant-find-the-command-hwmatch-on-grub/)
