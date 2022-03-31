@@ -154,9 +154,13 @@ apt-get install inotify-tools -y
 3. Terminal ```sudo update-initramfs -u```
 
 ## Fix hwmatch and other errors
-1. Install Grub Customizer
+1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: `quiet splash gfxpayload=800x1280 acpi=force`
 3. General settings > Advanced settings > Add: `GRUB_GFXPAYLOAD_LINUX=keep`
+
+## Fix multitouch screen
+1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
+2. Reboot
 
 ## Bugs still can't fix
 1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
