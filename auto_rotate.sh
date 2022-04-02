@@ -12,12 +12,13 @@
 # Launcher will be on the left in a landscape orientation and on the bottom in a portrait orientation
 # This script should be added to startup applications for the user
 
-# may change grep to match your touchscreen
+sleep 5 # avoid ladnscape.sh script
 
-sleep 5
+INDEV=$(xinput list --id-only "pointer:Goodix Capacitive TouchScreen") # Touchscreen
+DNAME=$(xrandr --listmonitors | sed -ne 's/ .* //gp') # Monitor
+MODE=$(echo $(xrandr | grep '*') | awk -F " " '{print $1; exit}') # Resolution 
+RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//') # Rate Hz
 
-INDEV=$(xinput list --id-only "pointer:Goodix Capacitive TouchScreen")
-DNAME=DSI-1
 LOG=/run/user/$(id -u $USER)/sensor.log
 export DISPLAY=:0
 
@@ -77,8 +78,11 @@ function rotate {
 		;;
 	esac  
 
-    xrandr -o $OLD_ROT    
-    xrandr -o $NEW_ROT
+    BRIGHT=$(echo $(xrandr --verbose | grep 'Brightness') | awk -F " " '{print $2; exit}') # Brightness
+    GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}') # Gamma
+
+    xrandr --output $DNAME --mode $MODE --rate $RATE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $OLD_ROT
+    xrandr --output $DNAME --mode $MODE --rate $RATE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $NEW_ROT
     xinput set-prop "$INDEV" --type=float 'Coordinate Transformation Matrix' $CTM
 }
 
@@ -97,9 +101,8 @@ monitor-sensor >> $LOG 2>&1 &
 while inotifywait -e modify $LOG; do
 	# Read the last line that was added to the file and get the orientation
 	ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
-
 	if [ ! -z $ORIENTATION ] ; then
-		rotate $ORIENTATION
+            rotate $ORIENTATION
 	fi
 
 done
