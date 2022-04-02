@@ -104,23 +104,19 @@ If black screen, you can try:
 ## Update Linux Mint
 Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all software
 
-## Fix some black screen (not all)
-If your kernel is lower than 5.4.152, you must upgrade your kernel to the latest 5.4.x.<br>
-Don't upgrade to 5.5, 5.13, etc. wont' work. Stay in 5.4<br>
-
+## Kernel
 1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
-2. Get into the last v5.4.x folder
-3. From the first group of links, download:
-- linux-headers-5.4.x-generic_5.4.x_amd64.deb
-- linux-image-unsigned-5.4.x-generic_5.4.x_amd64.deb
-- linux-modules-5.4.x-generic_5.4.x_amd64.deb
-- linux-headers-5.4.x_5.4.x_all.deb
+2. Get into the last v4.19.x folde. From the first group of links, download:
+- linux-headers-4.19.x-eric_4.19.x_amd64.deb
+- linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
+- linux-modules-4.19.x-generic_4.19.x_amd64.deb
+- linux-headers-4.19.x_5.4.x_all.deb
 4. In the same folder you download, open terminal and type:
 ```
 sudo dpkg -i linux*.deb
 ```
 5. Reboot (If black screen reboot again).
-6. Mint update wil ask for upadte to a highter kernel like 5.13, etc. Right click and set something like "ignore all future update of this packages"
+6. Mint update wil ask for upadte to a highter kernel, etc. Right click and set something like "ignore all future update of this packages"
 
 ## Fix start in landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
