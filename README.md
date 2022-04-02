@@ -155,7 +155,7 @@ apt-get install inotify-tools -y
 
 ## Fix hwmatch and other errors
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. General settings > Kernel parameters: `quiet splash gfxpayload=800x1280 acpi=force`
+2. General settings > Kernel parameters: `quiet splash gfxpayload=800x1280 acpi=force nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0  i915.modeset=1`
 3. General settings > Advanced settings > Add: `GRUB_GFXPAYLOAD_LINUX=keep`
 
 ## Fix multitouch screen
