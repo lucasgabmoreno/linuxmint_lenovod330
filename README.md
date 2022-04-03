@@ -25,13 +25,13 @@ Install Linux Mint in Lenovo D330
 5. [Open Lenovo Vantage](https://www.microsoft.com/p/lenovo-vantage/9wzdncrfj4mv?rtc=1&activetab=pivot:overviewtab) and update drivers and system.
 7. Detect your device with [Lenovo Support](https://support.lenovo.com/solutions/ht104055), download and install BIOS and EMMC Firmware update.
 
-## How to acces BIOS
+## BIOS
 1. Turn off device (10 seconds power button)
 2. Turn on device (5 seconds power button)
 3. Inmediattely press:
 `Fn+F2`
 
-## How to access Boot Options
+## Boot Options
 1. Turn off device (10 seconds power button)
 2. Turn on device (5 seconds power button)
 3. Inmediattely press:
@@ -118,13 +118,13 @@ sudo dpkg -i linux*.deb
 5. Reboot (If black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel, etc. Right click and set something like "ignore all future update of this packages"
 
-## Fix start in landscape mode
+## Landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
 1. Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
 2. Go to the file, open terminal and type `sudo chmod +x landscape.sh` to change permissions.
 3. Reboot.
 
-## Fix auto rotate
+## Auto rotate
 Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.<br>
 1. Install Inotify tools, open terminal and type:
 ```
@@ -134,7 +134,7 @@ apt-get install inotify-tools -y
 3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
 4. Reboot.
 
-## Temporary fix autorotate & landscape mode black screen
+## Black Screen
 ### Tablet mode:
 - Rotate device until black screen dissapear.
 ### Notebook mode:
@@ -144,17 +144,17 @@ apt-get install inotify-tools -y
 - Add a shortcut like Ctrl+Shift+L.
 - When black screen, press Ctrl+Shift+L until black screen dissapear.
 
-## Fix firmware
+## Firmware
 1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
 2. Move bin file into `/lib/firmware/i915`
 3. Terminal ```sudo update-initramfs -u```
 
-## Fix hwmatch and other errors
+## Hwmatch & Boot
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: `quiet splash gfxpayload=800x1280 acpi=force nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0  i915.modeset=1`
 3. General settings > Advanced settings > Add: `GRUB_GFXPAYLOAD_LINUX=keep`
 
-## Fix multitouch screen
+## Multitouch
 1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. Reboot
 
