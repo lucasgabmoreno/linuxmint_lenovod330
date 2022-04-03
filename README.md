@@ -151,12 +151,31 @@ sudo apt-get install inotify-tools -y
 
 ## Hwmatch & Boot
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. General settings > Kernel parameters: `quiet splash gfxpayload=800x1280 acpi=force nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0  i915.modeset=1`
-3. General settings > Advanced settings > Add: `GRUB_GFXPAYLOAD_LINUX=keep`
+2. General settings > Kernel parameters: 
+```
+quiet splash gfxpayload=800x1280 acpi=force nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0 i915.modeset=1
+```
+4. General settings > Advanced settings > Add: 
+```
+GRUB_GFXPAYLOAD_LINUX=keep
+```
 
 ## Multitouch
 1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. Reboot
+
+## Xserver Xorg 
+1. Debloat driver:
+```
+sudo apt-get remove xserver-xorg-video-* -y
+sudo apt-get remove --auto-remove xserver-xorg-video-* -y
+sudo apt-get purge xserver-xorg-video-* -y
+sudo apt-get purge --auto-remove xserver-xorg-video-* -y
+```
+2. Install Intel:
+```
+sudo apt-get install xserver-xorg-video-intel -y
+```
 
 ## Bugs still can't fix
 1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
