@@ -128,7 +128,7 @@ Only for notebook mode, if you want to stay in tablet mode, you can disable this
 Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.<br>
 1. Install Inotify tools, open terminal and type:
 ```
-apt-get install inotify-tools -y
+sudo apt-get install inotify-tools -y
 ```
 2. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
 3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
