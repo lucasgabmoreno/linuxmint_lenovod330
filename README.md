@@ -1,10 +1,10 @@
 # Linux Mint in Lenovo D330
 Install Linux Mint in Lenovo D330
 
-## Problems
-- Non standar BIOS ACPI 
-- Non standar monitor resolution: 800x1280
-- No Legacy BIOS
+## Issues
+- Non standar BIOS ACPI: boot error messages.
+- Non standar monitor resolution (800x1280): black screen and portrait as default.
+- No Legacy BIOS: flickering screen in recovery mode (nomodeset) and other video issues.
 
 ## Device
 | Name | Specification |
@@ -72,7 +72,7 @@ sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Wind
 ```
 
 ## Convert micro SD card to GPT System Partition
-1. Boot Linux Installer
+1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
 2. Open gparted
 3. Choose micro sd card device
 4. Unmount it
@@ -82,7 +82,7 @@ sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Wind
 8. Edit > Apply all operations
 
 ## Install Linux Mint
-1. Boot Linux Mint
+1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
 2. Open Installer
 3. If you have micro SD, I recommend this partition map:
 ```
@@ -120,7 +120,9 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 sudo dpkg -i linux*.deb
 ```
 5. Reboot (if black screen reboot again).
-6. Mint update wil ask for upadte to a highter kernel, etc. Right click and set something like "ignore all future update of this packages"
+6. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall) and move 4.19.x kernel at first option.
+7. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
+8. [Mintupdate](https://github.com/linuxmint/mintupdate) will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
 ## Landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
