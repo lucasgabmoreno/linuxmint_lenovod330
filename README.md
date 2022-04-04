@@ -4,6 +4,7 @@ Install Linux Mint in Lenovo D330
 ## Problems
 - Non standar BIOS ACPI 
 - Non standar monitor resolution: 800x1280
+- No Legacy BIOS
 
 ## Device
 | Name | Specification |
