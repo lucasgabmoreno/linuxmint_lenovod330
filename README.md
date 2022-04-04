@@ -41,11 +41,11 @@ Install Linux Mint in Lenovo D330
 `Fn+F12`
 
 ## Disable secure boot
-1. [Access BIOS](https://github.com/lucasgabmoreno/linuxmint_lenovod330/README.md#bios)
+1. [Access BIOS](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#bios)
 2. Disable Secure Boot
 
-## How to Boot Linux Mint Installer
-1. Access boot options
+## Boot Linux Mint Installer
+1. [Access boot options](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-options)
 2. Choose USB device
 
 If black screen, you can try:
@@ -58,7 +58,7 @@ If Screen in portrait orientation:
 
 ## (Optional) Make a Windows Backup
 1. Boot Linux Mint Installer
-2. Mount external USB storage 
+2. Mount an external USB storage 
 3. Open terminal and make a backup<br>
 ```
 sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror
@@ -109,8 +109,8 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 
 ## Kernel
 1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
-2. Get into the last v4.19.x folde. From the first group of links, download:
-- linux-headers-4.19.x-eric_4.19.x_amd64.deb
+2. Get into the last v4.19.x folder from the first group of links, download:
+- linux-headers-4.19.x-generic_4.19.x_amd64.deb
 - linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
 - linux-modules-4.19.x-generic_4.19.x_amd64.deb
 - linux-headers-4.19.x_5.4.x_all.deb
@@ -118,7 +118,7 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 ```
 sudo dpkg -i linux*.deb
 ```
-5. Reboot (If black screen reboot again).
+5. Reboot (if black screen reboot again).
 6. Mint update wil ask for upadte to a highter kernel, etc. Right click and set something like "ignore all future update of this packages"
 
 ## Landscape mode
@@ -168,14 +168,14 @@ GRUB_GFXPAYLOAD_LINUX=keep
 2. Reboot
 
 ## Xserver Xorg 
-1. Debloat driver:
+1. Debloat drivers:
 ```
 sudo apt-get remove xserver-xorg-video-* -y
 sudo apt-get remove --auto-remove xserver-xorg-video-* -y
 sudo apt-get purge xserver-xorg-video-* -y
 sudo apt-get purge --auto-remove xserver-xorg-video-* -y
 ```
-2. Install Intel:
+2. Install only Intel:
 ```
 sudo apt-get install xserver-xorg-video-intel -y
 ```
