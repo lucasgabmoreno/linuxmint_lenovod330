@@ -1,8 +1,11 @@
 # Linux Mint in Lenovo D330
 Install Linux Mint in Lenovo D330
 
-## Device
+## Problems
+- Non standar BIOS ACPI 
+- Non standar monitor resolution: 800x1280
 
+## Device
 | Name | Specification |
 | :--- | :--- |
 | Model | Lenovo IdeaPad D330-10IGL |
@@ -38,7 +41,7 @@ Install Linux Mint in Lenovo D330
 `Fn+F12`
 
 ## Disable secure boot
-1. Access BIOS
+1. [Access BIOS](https://github.com/lucasgabmoreno/linuxmint_lenovod330/README.md#bios)
 2. Disable Secure Boot
 
 ## How to Boot Linux Mint Installer
