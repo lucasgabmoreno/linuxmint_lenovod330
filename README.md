@@ -159,7 +159,7 @@ sudo apt-get install inotify-tools -y
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: 
 ```
-quiet splash gfxpayload=800x1280 acpi=force nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0 i915.modeset=1
+quiet splash acpi=force gfxpayload=800x600 fbcon=rotate:0 i915.modeset=1 nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0 
 ```
 4. General settings > Advanced settings > Add: 
 ```
