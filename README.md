@@ -159,7 +159,7 @@ sudo apt-get install inotify-tools -y
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: 
 ```
-quiet splash acpi_osi=Linux acpi=force gfxpayload=800x600 fbcon=rotate:0 i915.modeset=1 nvidia.modeset=0 nouveau.modeset=0 radeon.modeset=0 r128.modeset=0 
+quiet splash acpi_osi=Linux acpi=force gfxpayload=800x600 fbcon=rotate:0 i915.modeset=1 i915.runpm=1 nvidia.modeset=0 nvidia.runpm=0 nouveau.modeset=0 nouveau.runpm=0 amdgpu.modeset=0 amdgpu.runpm=0 radeon.modeset=0 radeon.runpm=0 r128.modeset=0 r128.runpm=0 loglevel=0
 ```
 4. General settings > Advanced settings > Add: 
 ```
@@ -170,7 +170,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
 1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. Reboot
 
-## Xserver Xorg 
+## Drivers
 1. Debloat drivers:
 ```
 sudo apt-get remove xserver-xorg-video-* -y
@@ -181,6 +181,7 @@ sudo apt-get purge --auto-remove xserver-xorg-video-* -y
 2. Install only Intel:
 ```
 sudo apt-get install xserver-xorg-video-intel -y
+sudo apt-get install intel-gpu-tools -y
 ```
 
 ## Bugs still can't fix
