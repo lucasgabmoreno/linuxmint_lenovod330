@@ -21,13 +21,12 @@ Install Linux Mint in Lenovo D330
 
 ---
 
-## (Optional) Update Windows, BIOS and Firmware
+## (Optional) Update BIOS and Firmware
 1. Boot Windows.
 2. [Download and install Lenovo Service Bridge](https://support.lenovo.com/solutions/ht104055).
 3. [Disable S Windows Mode](https://support.microsoft.com/en-us/windows/switching-out-of-s-mode-in-windows-4f56d9be-99ec-6983-119f-031bfb28a307).
-4. [Run Windows Update](https://support.microsoft.com/en-us/windows/update-windows-3c5ae7fc-9fb6-9af1-1984-b5e0412c556a#WindowsVersion=Windows_10).
-5. [Open Lenovo Vantage](https://www.microsoft.com/p/lenovo-vantage/9wzdncrfj4mv?rtc=1&activetab=pivot:overviewtab) and update drivers and system.
-7. Detect your device with [Lenovo Support](https://support.lenovo.com/solutions/ht104055), download and install BIOS and EMMC Firmware update.
+4. Download and install [BIOS Upgrade](https://support.lenovo.com/us/en/downloads/ds545459-bios-update-for-windows-10-64-bit-d330-10igl)
+5. Download and install [Firmware Upgrade](https://pcsupport.lenovo.com/ar/es/downloads/ds553169-wd-7550-emmc-firmware-update-to-qs14d-winbook)
 
 ## BIOS
 1. Turn off device (10 seconds power button)
@@ -159,7 +158,7 @@ sudo apt-get install inotify-tools -y
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: 
 ```
-quiet splash acpi_osi=Linux acpi=force gfxpayload=800x600 fbcon=rotate:0 i915.modeset=1 i915.runpm=1 nvidia.modeset=0 nvidia.runpm=0 nouveau.modeset=0 nouveau.runpm=0 amdgpu.modeset=0 amdgpu.runpm=0 radeon.modeset=0 radeon.runpm=0 r128.modeset=0 r128.runpm=0 loglevel=0
+quiet splash acpi_osi=Linux acpi=force gfxpayload=800x600 fbcon=rotate:0 i915.modeset=1 i915.runpm=1 nvidia.modeset=0 nvidia.runpm=0 nouveau.modeset=0 nouveau.runpm=0 amdgpu.modeset=0 amdgpu.runpm=0 radeon.modeset=0 radeon.runpm=0 r128.modeset=0 r128.runpm=0 loglevel=0 video=DP-1:d video=HDMI-1:d
 ```
 4. General settings > Advanced settings > Add: 
 ```
