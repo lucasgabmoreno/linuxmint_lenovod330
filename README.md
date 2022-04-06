@@ -156,7 +156,7 @@ sudo apt-get install inotify-tools -y
 2. Move bin file into `/lib/firmware/i915`
 3. Terminal ```sudo update-initramfs -u```
 
-## Hwmatch & Boot
+## Grub
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: 
 ```
