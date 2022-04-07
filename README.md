@@ -182,13 +182,11 @@ sudo apt-get install xserver-xorg-video-intel -y && sudo apt-get install intel-g
 ```
 
 ## Bugs still can't fix
-1. [Issue #5](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/5): Randomly, when starting PC, doesn't show grub, splash and first screen. All in black screen. <br>
+1. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
 Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
-2. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
-Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
-3. [Issue #7](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/7): Video tearing. <br>
+2. [Issue #7](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/7): Video tearing. <br>
 No solution temporary
-4. [Issue #8](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/8): Can't get into safe mode
+3. [Issue #8](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/8): Can't get into safe mode
  
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
