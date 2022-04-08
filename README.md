@@ -1,5 +1,5 @@
 # Linux Mint in Lenovo D330
-Install Linux Mint in Lenovo D330
+This is a guide to install Linux Mint in Lenovo D330-10IGL as less buggy as possible.
 
 ## Issues
 - Non standar BIOS ACPI: boot error messages.
