@@ -15,9 +15,14 @@
 sleep 5 # avoid ladnscape.sh script
 
 INDEV=$(xinput list --id-only "pointer:Goodix Capacitive TouchScreen") # Touchscreen
-DNAME=$(xrandr --listmonitors | sed -ne 's/ .* //gp') # Monitor
-MODE=$(echo $(xrandr | grep '*') | awk -F " " '{print $1; exit}') # Resolution 
-RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//') # Rate Hz
+#DNAME=$(xrandr --listmonitors | sed -ne 's/ .* //gp') # Monitor
+#MODE=$(echo $(xrandr | grep '*') | awk -F " " '{print $1; exit}') # Resolution 
+#RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//') # Rate Hz
+DNAME=DSI-1 # Monitor
+MODE_PRE=1024x768 # Pre resolution
+MODE=800x1280 # Resolution 
+RATE_PRE=60.04 # Pre Rate Hz
+RATE=60.00 # Rate Hz
 
 LOG=/run/user/$(id -u $USER)/sensor.log
 export DISPLAY=:0
@@ -26,53 +31,52 @@ function rotate {
 	ORIENTATION=$1
     NOW_ROT=$(xrandr --query --verbose | grep "$DNAME" | cut -d ' ' -f 6)
 
-    # Fix with 90° hack method 
 	case "$NOW_ROT" in
 	normal)
-        ROT_NORMAL="normal"
-        ROT_RIGHT="normal"
-        ROT_INVERTED="normal"
-        ROT_LEFT="normal"
+        ROT_NORMAL=false
+        ROT_RIGHT=true
+        ROT_INVERTED=false
+        ROT_LEFT=true
 		;;
 	right)
-        ROT_NORMAL="left"
-        ROT_RIGHT="right"
-        ROT_INVERTED="left"
-        ROT_LEFT="right"
+        ROT_NORMAL=true
+        ROT_RIGHT=false
+        ROT_INVERTED=true
+        ROT_LEFT=false
 		;;
 	inverted)
-        ROT_NORMAL="inverted"
-        ROT_RIGHT="inverted"
-        ROT_INVERTED="inverted"
-        ROT_LEFT="inverted"
+        ROT_NORMAL=false
+        ROT_RIGHT=true
+        ROT_INVERTED=false
+        ROT_LEFT=true
 		;;
 	left)  
-        ROT_NORMAL="right"
-        ROT_RIGHT="left"
-        ROT_INVERTED="left"
-        ROT_LEFT="left"
+        ROT_NORMAL=true
+        ROT_RIGHT=false
+        ROT_INVERTED=true
+        ROT_LEFT=false
 		;;
 	esac  	
 
 	# Set the actions to be taken  for each possible orientation
 	case "$ORIENTATION" in
 	normal)
-        OLD_ROT=$ROT_RIGHT        
+        ROT=$ROT_RIGHT        
         NEW_ROT="right"
 		CTM="0 1 0 -1 0 1 0 0 1" 		
 		;;
 	bottom-up)
-        OLD_ROT=$ROT_LEFT 
+        ROT=$ROT_LEFT 
 		NEW_ROT="left"
 		CTM="0 -1 1 1 0 0 0 0 1"
 		;;
 	right-up)
-        OLD_ROT=$ROT_INVERTED
+        ROT=$ROT_INVERTED
 		NEW_ROT="inverted"
         CTM="-1 0 1 0 -1 1 0 0 1"
 		;;
 	left-up)
-        OLD_ROT=$ROT_NORMAL
+        ROT=$ROT_NORMAL
 		NEW_ROT="normal"
 		CTM="1 0 0 0 1 0 0 0 1"
 		;;
@@ -81,7 +85,10 @@ function rotate {
     BRIGHT=$(echo $(xrandr --verbose | grep 'Brightness') | awk -F " " '{print $2; exit}') # Brightness
     GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}') # Gamma
 
-    xrandr --output $DNAME --mode $MODE --rate $RATE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $OLD_ROT
+if $ROT; then    
+    xrandr --output $DNAME --mode $MODE_PRE --rate $RATE_PRE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $NEW_ROT    
+fi
+
     xrandr --output $DNAME --mode $MODE --rate $RATE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $NEW_ROT
     xinput set-prop "$INDEV" --type=float 'Coordinate Transformation Matrix' $CTM
 }
@@ -102,7 +109,9 @@ while inotifywait -e modify $LOG; do
 	# Read the last line that was added to the file and get the orientation
 	ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
 	if [ ! -z $ORIENTATION ] ; then
-            rotate $ORIENTATION
+        sleep 0.25
+        ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
+        rotate $ORIENTATION
 	fi
 
 done
