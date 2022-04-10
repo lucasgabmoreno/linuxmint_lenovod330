@@ -179,9 +179,8 @@ sudo apt-get remove --auto-remove xserver-xorg-video-* -y
 sudo apt-get purge xserver-xorg-video-* -y
 sudo apt-get purge --auto-remove xserver-xorg-video-* -y
 ```
-2. Install only Intel:
+2. Install:
 ```
-sudo apt-get install xserver-xorg-video-intel -y
 sudo apt-get install intel-gpu-tools -y
 ```
 
