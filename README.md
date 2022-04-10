@@ -184,6 +184,17 @@ sudo apt-get purge --auto-remove xserver-xorg-video-* -y
 sudo apt-get install intel-gpu-tools -y
 ```
 
+## Webcam
+Invert default 5M camera with secondary 2M webcam
+```
+sudo wget -O /etc/systemd/system/lenovod330-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam.service
+sudo wget -O /usr/bin/lenovod330-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam.sh
+sudo chmod +x /etc/systemd/system/lenovod330-webcam.service
+sudo chmod +x /usr/bin/lenovod330-webcam.sh
+sudo systemctl enable lenovod330-webcam.service
+sudo systemctl start lenovod330-webcam.service
+```
+
 ## Bugs still can't fix
 1. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
 Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
