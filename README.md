@@ -169,7 +169,11 @@ GRUB_GFXPAYLOAD_LINUX=keep
 
 ## Multitouch
 1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. Reboot
+2. Firefox touchscreen fix:
+```
+echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
+```
+4. Reboot
 
 ## Drivers
 1. Debloat drivers:
