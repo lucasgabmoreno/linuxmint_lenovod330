@@ -3,7 +3,7 @@ This is a guide to install Linux Mint in Lenovo D330-10IGL as less buggy as poss
 
 ## Issues
 - Non standar BIOS ACPI: boot error messages.
-- Non standar monitor resolution (800x1280): black screen and portrait as default.
+- No monitor, use a DSI Display Serial Interface with no standar monitor resolution (800x1280): black screen and portrait as default.
 - No Legacy BIOS: flickering screen in recovery mode (nomodeset) and other video issues.
 
 ## Device
@@ -174,19 +174,6 @@ GRUB_GFXPAYLOAD_LINUX=keep
 echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
 4. Reboot
-
-## Drivers
-1. Debloat drivers:
-```
-sudo apt-get remove xserver-xorg-video-* -y
-sudo apt-get remove --auto-remove xserver-xorg-video-* -y
-sudo apt-get purge xserver-xorg-video-* -y
-sudo apt-get purge --auto-remove xserver-xorg-video-* -y
-```
-2. Install:
-```
-sudo apt-get install intel-gpu-tools -y
-```
 
 ## Webcam
 Invert default 5M camera with secondary 2M webcam
