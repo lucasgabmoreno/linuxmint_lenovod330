@@ -7,12 +7,19 @@ GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}')
 #MODE=$(echo $(xrandr | grep '*') | awk -F " " '{print $1; exit}') # Resolution 
 #RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//') # Rate Hz
 DNAME=DSI-1 # Monitor
-MODE_PRE=1024x768 # Pre resolution
-MODE=800x1280 # Resolution 
-RATE_PRE=60.04 # Pre Rate Hz
-RATE=60.00 # Rate Hz
+MODE=800x1280R # Resolution 
+RATE=59.91 # Rate Hz
 
-xrandr --output $DNAME --mode $MODE_PRE --rate $RATE_PRE --gamma $GAMMA --brightness $BRIGHT --primary --rotate right
-xrandr --output $DNAME --mode $MODE --rate $RATE --gamma $GAMMA --brightness $BRIGHT --primary --rotate right 
+MODE_PRE=1280x800 # Pre resolution
+RATE_PRE=59.99 # Pre Rate Hz
+BRIGHT_PRE=1.0
+GAMMA_PRE=1.0:1.0:1.0
+
+xrandr --newmode "800x1280R"   75.75  800 848 880 960  1280 1283 1293 1317 +hsync -vsync
+xrandr --addmode DSI-1 800x1280R
+
+xrandr -s 0 
+xrandr --output $DNAME --auto --primary --mode $MODE --rotate right --rate $RATE --gamma $GAMMA --brightness $BRIGHT
+
 xinput set-prop "$INDEV" --type=float "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 

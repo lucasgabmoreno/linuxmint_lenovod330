@@ -1,16 +1,6 @@
 #!/bin/bash
-# Auto rotate screen based on device orientation
-# based on https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61 
+# Based on https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61 
 # Adapted for Lenovo D330 10IGL 82HO
-
-# Install
-# 1. apt-get install iio-sensor-proxy inotify-tools
-# 2. add script to autostart
-
-# Receives input from monitor-sensor (part of iio-sensor-proxy package)
-# Screen orientation and launcher location is set based upon accelerometer position
-# Launcher will be on the left in a landscape orientation and on the bottom in a portrait orientation
-# This script should be added to startup applications for the user
 
 sleep 5 # avoid ladnscape.sh script
 
@@ -20,12 +10,12 @@ INDEV=$(xinput list --id-only "pointer:Goodix Capacitive TouchScreen") # Touchsc
 #RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//') # Rate Hz
 DNAME=DSI-1 # Monitor
 MODE_PRE=1024x768 # Pre resolution
-MODE=800x1280 # Resolution 
-RATE_PRE=60.04 # Pre Rate Hz
-RATE=60.00 # Rate Hz
+MODE=800x1280R # Resolution 
+RATE_PRE=60.00 # Pre Rate Hz
+RATE=59.91 # Rate Hz
 
 LOG=/run/user/$(id -u $USER)/sensor.log
-export DISPLAY=:0
+#export DISPLAY=:0
 
 function rotate {
 	ORIENTATION=$1
@@ -85,11 +75,10 @@ function rotate {
     BRIGHT=$(echo $(xrandr --verbose | grep 'Brightness') | awk -F " " '{print $2; exit}') # Brightness
     GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}') # Gamma
 
-if $ROT; then    
-    xrandr --output $DNAME --mode $MODE_PRE --rate $RATE_PRE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $NEW_ROT    
-fi
-
-    xrandr --output $DNAME --mode $MODE --rate $RATE --gamma $GAMMA --brightness $BRIGHT --primary --rotate $NEW_ROT
+    if $ROT; then        
+        xrandr -s 0
+    fi
+    xrandr --output $DNAME --auto --primary --mode $MODE --rotate $NEW_ROT --rate $RATE --gamma $GAMMA --brightness $BRIGHT
     xinput set-prop "$INDEV" --type=float 'Coordinate Transformation Matrix' $CTM
 }
 
@@ -102,16 +91,13 @@ killall monitor-sensor
 # Launch monitor-sensor and store the output in a variable that can be parsed by the rest of the script
 monitor-sensor >> $LOG 2>&1 &
 
-# Parse output or monitor sensor to get the new orientation whenever the log file is updated
-# Possibles are: normal, bottom-up, right-up, left-up
-# Light data will be ignored
 while inotifywait -e modify $LOG; do
-	# Read the last line that was added to the file and get the orientation
-	ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
-	if [ ! -z $ORIENTATION ] ; then
-        sleep 0.25
-        ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
-        rotate $ORIENTATION
-	fi
-
+    if ! $(gsettings get org.cinnamon.settings-daemon.peripherals.touchscreen orientation-lock); then
+	    ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
+	    if [ ! -z $ORIENTATION ] ; then
+            sleep 0.25
+            ORIENTATION=$(tail -n 1 $LOG | grep 'orientation' | grep -oE '[^ ]+$')
+            rotate $ORIENTATION
+	    fi
+    fi
 done
