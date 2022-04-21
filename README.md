@@ -200,3 +200,4 @@ No solution temporary
 - [Archlinux](https://wiki.archlinux.org/title/xrandr#Screen_Blinking)
 - [FreeDesktop](https://bugs.freedesktop.org/show_bug.cgi?id=109267)
 - [LinuxCapable](https://www.linuxcapable.com/es/how-to-install-linux-kernel-5-17-on-linux-mint-20-lts/)
+- [Launchpad](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1838373)
