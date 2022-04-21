@@ -198,6 +198,6 @@ No solution temporary
 - [Markus](https://gist.github.com/Links2004/5976ce97a14dabf773c3ff98d03c0f61)
 - [Angelo](https://unixcop.com/fix-the-error-cant-find-the-command-hwmatch-on-grub/)
 - [Archlinux](https://wiki.archlinux.org/title/xrandr#Screen_Blinking)
-- [FreeDesktop](https://bugs.freedesktop.org/show_bug.cgi?id=109267)
+- FreeDesktopv[109267](https://bugs.freedesktop.org/show_bug.cgi?id=109267) and [108826](https://bugs.freedesktop.org/show_bug.cgi?id=108826)
 - [LinuxCapable](https://www.linuxcapable.com/es/how-to-install-linux-kernel-5-17-on-linux-mint-20-lts/)
 - [Launchpad](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1838373)
