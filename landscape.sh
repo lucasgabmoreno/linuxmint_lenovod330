@@ -18,8 +18,9 @@ GAMMA_PRE=1.0:1.0:1.0
 xrandr --newmode "800x1280R" 75.75  800 848 880 960  1280 1283 1293 1317 +hsync -vsync
 xrandr --addmode DSI-1 800x1280R
 
-xrandr --output $DNAME --auto --primary --mode $MODE_PRE --rotate right --rate $RATE --gamma $GAMMA_PRE --brightness $BRIGHT_PRE
-xrandr --output $DNAME --auto --primary --mode $MODE --rotate right --rate $RATE --gamma $GAMMA --brightness $BRIGHT
+xrandr --output $DNAME --auto --primary --mode $MODE_PRE --rotate right
+xrandr --output $DNAME --auto --primary --mode $MODE --rotate right
+xrandr --output $DNAME --rate $RATE --gamma $GAMMA --brightness $BRIGHT
 
 xinput set-prop "$INDEV" --type=float "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 

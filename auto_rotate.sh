@@ -76,9 +76,11 @@ function rotate {
     GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}') # Gamma
 
     if $ROT; then        
-        xrandr -s 0
+        xrandr --output $DNAME --auto --primary --mode $MODE_PRE --rotate $NEW_ROT 
     fi
-    xrandr --output $DNAME --auto --primary --mode $MODE --rotate $NEW_ROT --rate $RATE --gamma $GAMMA --brightness $BRIGHT
+    xrandr --output $DNAME --auto --primary --mode $MODE --rotate $NEW_ROT 
+    xrandr --output $DNAME --rate $RATE --gamma $GAMMA --brightness $BRIGHT
+
     xinput set-prop "$INDEV" --type=float 'Coordinate Transformation Matrix' $CTM
 }
 
