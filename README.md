@@ -109,21 +109,31 @@ If black screen, you can try:
 ## Update Linux Mint
 Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all software
 
+## Grub
+1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
+2. General settings > Kernel parameters: 
+```
+quiet splash acpi_osi=Linux acpi=force gfxpayload=800x1280 fbcon=rotate:0 i915.modeset=1 i915.runpm=1 loglevel=0  i915.enable_dc=0 i915.enable_fbc=0 i915.enable_psr=0 i915.enable_guc=0 i915.enable_dpcd_backlight=0 i915.disable_power_well=1 i915.reset=1 i915.mitigations=auto i915.fastboot=0
+```
+4. General settings > Advanced settings > Add: 
+```
+GRUB_GFXPAYLOAD_LINUX=keep
+```
+
+## Firmware
+1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
+2. Move bin file into `/lib/firmware/i915`
+3. Terminal ```sudo update-initramfs -u```
+
 ## Kernel
-1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
-2. Get into the last v4.19.x folder from the first group of links, download:
-- linux-headers-4.19.x-generic_4.19.x_amd64.deb
-- linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
-- linux-modules-4.19.x-generic_4.19.x_amd64.deb
-- linux-headers-4.19.x_5.4.x_all.deb
-4. In the same folder you download, open terminal and type:
+1. Open terminal
 ```
-sudo dpkg -i linux*.deb
+sudo add-apt-repository ppa:tuxinvader/lts-mainline -y
+sudo apt update
+sudo apt-get install linux-generic-5.17 -ysudo apt-get install linux-generic-5.17 -y
+
 ```
-5. Reboot (if black screen reboot again).
-6. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall) and move 4.19.x kernel at first option.
-7. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
-8. [Mintupdate](https://github.com/linuxmint/mintupdate) will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
+2. Reboot
 
 ## Landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
@@ -150,22 +160,6 @@ sudo apt-get install inotify-tools -y
 - Use [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) (With execution permission enabled).
 - Add a shortcut like Ctrl+Shift+L.
 - When black screen, press Ctrl+Shift+L until black screen dissapear.
-
-## Firmware
-1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
-2. Move bin file into `/lib/firmware/i915`
-3. Terminal ```sudo update-initramfs -u```
-
-## Grub
-1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. General settings > Kernel parameters: 
-```
-quiet splash acpi_osi=Linux acpi=force gfxpayload=800x1280 fbcon=rotate:0 i915.modeset=1 i915.runpm=1 loglevel=0 video=DP-1:d video=HDMI-1:d i915.enable_dc=0 i915.enable_fbc=0 i915.enable_psr=0
-```
-4. General settings > Advanced settings > Add: 
-```
-GRUB_GFXPAYLOAD_LINUX=keep
-```
 
 ## Multitouch
 1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
@@ -205,3 +199,4 @@ No solution temporary
 - [Angelo](https://unixcop.com/fix-the-error-cant-find-the-command-hwmatch-on-grub/)
 - [Archlinux](https://wiki.archlinux.org/title/xrandr#Screen_Blinking)
 - [FreeDesktop](https://bugs.freedesktop.org/show_bug.cgi?id=109267)
+- [LinuxCapable](https://www.linuxcapable.com/es/how-to-install-linux-kernel-5-17-on-linux-mint-20-lts/)
