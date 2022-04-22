@@ -2,9 +2,12 @@
 This is a guide to install Linux Mint in Lenovo D330-10IGL as less buggy as possible.
 
 ## Issues
-- Non standar BIOS ACPI: boot error messages.
-- No monitor, use a DSI Display Serial Interface with no standar monitor resolution (800x1280): black screen and portrait as default.
-- No Legacy BIOS: flickering screen in recovery mode (nomodeset) and other video issues.
+- No standar BIOS ACPI.
+- No DP (Display Port), DSI (Display Serial Interface) instead.
+- No standar monitor resolution: 800x1280.
+- No Legacy BIOS support.
+- Newer kernels does not apply [this patch](https://patchwork.freedesktop.org/patch/317041/)
+
 
 ## Device
 | Name | Specification |
@@ -93,7 +96,7 @@ Internal storage:
 / (root) 16384 MB logic
 /usr 27648 MB logic
 /var (use all free space) logic
-/swap 4096 MB
+/swap 2048 MB
 
 Micro sd card:
 /home (use all free space) logic
@@ -126,14 +129,20 @@ GRUB_GFXPAYLOAD_LINUX=keep
 3. Terminal ```sudo update-initramfs -u```
 
 ## Kernel
-1. Open terminal
+1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
+2. Get into the last v4.19.x folder from the first group of links, download:
+- linux-headers-4.19.x-generic_4.19.x_amd64.deb
+- linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
+- linux-modules-4.19.x-generic_4.19.x_amd64.deb
+- linux-headers-4.19.x_5.4.x_all.deb
+3. In the same folder you download, open terminal and type:
 ```
-sudo add-apt-repository ppa:tuxinvader/lts-mainline -y
-sudo apt update
-sudo apt-get install linux-generic-5.17 -ysudo apt-get install linux-generic-5.17 -y
-
+sudo dpkg -i linux*.deb
 ```
-2. Reboot
+4. Reboot (if black screen reboot again).
+5. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall) and move 4.19.x kernel at first option.
+6. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
+7. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
 ## Landscape mode
 Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
