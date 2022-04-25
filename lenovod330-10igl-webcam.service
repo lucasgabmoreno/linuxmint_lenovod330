@@ -1,0 +1,8 @@
+[Unit]
+Description=Change default webcam
+
+[Service]
+ExecStart=/usr/bin/lenovod330-10igl-fix.sh
+
+[Install]
+WantedBy=multi-user.target
