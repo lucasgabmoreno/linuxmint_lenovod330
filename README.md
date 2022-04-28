@@ -134,7 +134,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
 - linux-headers-4.19.x-generic_4.19.x_amd64.deb
 - linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
 - linux-modules-4.19.x-generic_4.19.x_amd64.deb
-- linux-headers-4.19.x_5.4.x_all.deb
+- linux-headers-4.19.x_4.19.x_all.deb
 3. In the same folder you download, open terminal and type:
 ```
 sudo dpkg -i linux*.deb
