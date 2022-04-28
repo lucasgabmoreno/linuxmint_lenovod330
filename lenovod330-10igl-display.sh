@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Fix Lenovo Ideapad D330-10IGL
+# Fix Lenovo Ideapad D330-10IGL Display
 # Only works in the last 4.19.x kernel
 # Created for Linux Mint Cinnamon
 
@@ -8,17 +8,9 @@
 # sudo apt-get install inotify-tools -y
 
 # Copy this file into /usr/bin/ folder
-# Copy lenovod330-10igl-fix.service into /etc/systemd/system/ folder
-# sudo chmod +x /usr/bin/lenovod330-10igl-fix.sh
-# sudo chmod +x /etc/systemd/system/lenovod330-10igl-fix.service
-# sudo systemctl enable lenovod330-10igl-fix.service
-# sudo systemctl start lenovod330-10igl-fix.service
+# sudo chmod +x /usr/bin/lenovod330-10igl-display.sh
+# Add this script to startup 
 
-# Open Keyboard options > Keyboard shortcuts > Custom Shortcuts
-# Add new one:
-    # Name: Refresh Screen
-    # Order: /usr/bin/lenovod330-10igl-refreshscreen.sh
-    # Keyboard bindings: Control+Shift+R
 
 # DISPLAY
 INDEV=$(xinput list --id-only "pointer:Goodix Capacitive TouchScreen") # Actual Touchscreen
