@@ -149,7 +149,7 @@ sudo dpkg -i linux*.deb
 ```
 sudo apt-get install inotify-tools -y
 ```
-2. Copy and paste in terminal
+2. Copy and paste on terminal
 ```
 sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
 sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
@@ -163,21 +163,19 @@ sudo systemctl enable lenovod330-10igl-webcam.service
 sudo systemctl start lenovod330-10igl-webcam.service
 ```
 2. Add `/usr/bin/lenovod330-10igl-display.sh` to startup
-3. Open Keyboard Settings > Shortcuts > Custom Shortcuts.
-- Add new one called Refresh Screen.
+3. Open Keyboard Settings > Shortcuts > Custom Shortcuts
+- Add new one called `Refresh Screen`
 - Use `/usr/bin/lenovod330-10igl-refreshscreen.sh`
-- Add a shortcut like Ctrl+Shift+R.
+- Add a shortcut like `Ctrl+Shift+R`
 3. Reboot.
 
 ## Black Screen
-### Tablet mode:
-- Rotate device until black screen dissapear.
-### Notebook mode:
-- Press Ctrl+Shift+L until black screen dissapear.
+- Tablet mode: Rotate device until black screen dissapear.
+- Netebook mode: Press Ctrl+Shift+L until black screen dissapear.
 
 ## Multitouch
 1. Install [Touchegg](https://github.com/JoseExposito/touchegg) with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. Firefox touchscreen fix:
+2. Firefox touchscreen fix
 ```
 echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
