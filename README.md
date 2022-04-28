@@ -144,7 +144,7 @@ sudo dpkg -i linux*.deb
 6. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
 7. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
-## Front webcam default & Landscape orientaation default & Refresh screen
+## Front webcam default & Landscape orientation default & Refresh screen shortcut
 1. Install dependencies
 ```
 sudo apt-get install inotify-tools -y
