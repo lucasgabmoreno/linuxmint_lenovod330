@@ -171,7 +171,7 @@ sudo apt-get install inotify-tools -y
 - When black screen, press Ctrl+Shift+L until black screen dissapear.
 
 ## Multitouch
-1. Install Touchegg with [mintinstall](https://github.com/linuxmint/mintinstall)
+1. Install [Touchegg](https://github.com/JoseExposito/touchegg) with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. Firefox touchscreen fix:
 ```
 echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
