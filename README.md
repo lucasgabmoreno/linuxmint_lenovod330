@@ -144,31 +144,36 @@ sudo dpkg -i linux*.deb
 6. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
 7. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
-## Landscape mode
-Only for notebook mode, if you want to stay in tablet mode, you can disable this method from startup.<br>
-1. Download and add this [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) to startup<br>
-2. Go to the file, open terminal and type `sudo chmod +x landscape.sh` to change permissions.
-3. Reboot.
-
-## Auto rotate
-Only for tablet mode, if you want to stay in notebook mode, you can disable this method from startup.<br>
-1. Install Inotify tools, open terminal and type:
+## Front webcam default & Landscape orientaation default & Refresh screen
+1. Install dependencies
 ```
 sudo apt-get install inotify-tools -y
 ```
-2. Download and add this [auto-rotate script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/auto_rotate.sh) to startup<br>
-3. Go to the file, open terminal and type `sudo chmod +x auto_rotate.sh` to change permissions.
-4. Reboot.
+2. Copy and paste in terminal
+```
+sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
+sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
+sudo wget -O /usr/bin/lenovod330-10igl-display.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-display.sh
+sudo wget -O /usr/bin/lenovod330-10igl-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-refreshscreen.sh
+sudo chmod +x /etc/systemd/system/lenovod330-10igl-webcam.service
+sudo chmod +x /usr/bin/lenovod330-10igl-webcam.sh
+sudo chmod +x /usr/bin/lenovod330-10igl-display.sh
+sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
+sudo systemctl enable lenovod330-10igl-webcam.service
+sudo systemctl start lenovod330-10igl-webcam.service
+```
+2. Add `/usr/bin/lenovod330-10igl-display.sh` to startup
+3. Open Keyboard Settings > Shortcuts > Custom Shortcuts.
+- Add new one called Refresh Screen.
+- Use `/usr/bin/lenovod330-10igl-refreshscreen.sh`
+- Add a shortcut like Ctrl+Shift+R.
+3. Reboot.
 
 ## Black Screen
 ### Tablet mode:
 - Rotate device until black screen dissapear.
 ### Notebook mode:
-- Open Keyboard Settings > Shortcuts > Custom Shortcuts.
-- Add new one called Landscape Refresh.
-- Use [landscape script](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/landscape.sh) (With execution permission enabled).
-- Add a shortcut like Ctrl+Shift+L.
-- When black screen, press Ctrl+Shift+L until black screen dissapear.
+- Press Ctrl+Shift+L until black screen dissapear.
 
 ## Multitouch
 1. Install [Touchegg](https://github.com/JoseExposito/touchegg) with [mintinstall](https://github.com/linuxmint/mintinstall)
@@ -177,17 +182,6 @@ sudo apt-get install inotify-tools -y
 echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
 4. Reboot
-
-## Webcam
-Invert default 5M camera with secondary 2M webcam
-```
-sudo wget -O /etc/systemd/system/lenovod330-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam.service
-sudo wget -O /usr/bin/lenovod330-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam.sh
-sudo chmod +x /etc/systemd/system/lenovod330-webcam.service
-sudo chmod +x /usr/bin/lenovod330-webcam.sh
-sudo systemctl enable lenovod330-webcam.service
-sudo systemctl start lenovod330-webcam.service
-```
 
 ## Bugs still can't fix
 1. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
