@@ -88,7 +88,8 @@ sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Wind
 ## Install Linux Mint
 1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
 2. Open Installer
-3. If you have micro SD, I recommend this partition map:
+3. If you have micro SD, I recommend this partition map:<br>
+#### Ubuntu Edition
 ```
 Internal storage:
 /EFI boot partition 550 MB logic
@@ -96,6 +97,16 @@ Internal storage:
 / (root) 16384 MB logic
 /usr 27648 MB logic
 /var (use all free space) logic
+/swap 2048 MB
+
+Micro sd card:
+/home (use all free space) logic
+```
+#### Debian Edition
+```
+Internal storage:
+/EFI boot partition 1024 MB logic  (Flags: boot, esp)
+/ (root) (use all free space) logic
 /swap 2048 MB
 
 Micro sd card:
