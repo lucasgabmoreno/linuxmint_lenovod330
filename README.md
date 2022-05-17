@@ -117,7 +117,6 @@ Micro sd card:
 Once installed, reboot.<br>
 If black screen, you can try:
 * Reboot again
-* Unmount keyboard and rotate device
 * Boot from USB installer and reboot again.
 
 ## Update Linux Mint
