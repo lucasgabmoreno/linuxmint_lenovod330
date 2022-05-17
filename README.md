@@ -157,7 +157,7 @@ sudo dpkg -i linux*.deb
 ## Front webcam default & Landscape orientation default & Refresh screen shortcut
 1. Install dependencies
 ```
-sudo apt-get install inotify-tools -y
+sudo apt-get install inotify-tools iio-sensor-proxy -y
 ```
 2. Copy and paste on terminal
 ```
