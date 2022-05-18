@@ -1,5 +1,7 @@
 # Linux Mint in Lenovo D330
 This is a guide to install Linux Mint in Lenovo D330-10IGL as less buggy as possible.
+Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and flickering screen in recovery mode and nomodeset. Install [LMDE Linux Mint Debian Edition](https://www.linuxmint.com/download_lmde.php) instead.
+
 
 ## Issues
 - No standar BIOS ACPI.
@@ -89,20 +91,6 @@ sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Wind
 1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
 2. Open Installer
 3. If you have micro SD, I recommend this partition map:<br>
-#### Ubuntu Edition
-```
-Internal storage:
-/EFI boot partition 550 MB logic
-/boot 1024 MB primary
-/ (root) 16384 MB logic
-/usr 27648 MB logic
-/var (use all free space) logic
-/swap 2048 MB
-
-Micro sd card:
-/home (use all free space) logic
-```
-#### Debian Edition
 ```
 Internal storage:
 /EFI boot partition 1024 MB logic  (Flags: boot, esp)
@@ -115,6 +103,7 @@ Micro sd card:
 
 ## Boot Linux Mint
 Once installed, reboot.<br>
+When Grub, choose "recovery mode".<br>
 If black screen, you can try:
 * Reboot again
 * Boot from USB installer and reboot again.
@@ -133,11 +122,6 @@ quiet splash acpi_osi=Linux acpi=force gfxpayload=800x1280 fbcon=rotate:0 i915.m
 GRUB_GFXPAYLOAD_LINUX=keep
 ```
 
-## Firmware
-1. Dowload [adlp_dmc_ver2_14.bin](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/adlp_dmc_ver2_14.bin)
-2. Move bin file into `/lib/firmware/i915`
-3. Terminal ```sudo update-initramfs -u```
-
 ## Kernel
 1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
 2. Get into the last v4.19.x folder from the first group of links, download:
@@ -150,7 +134,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
 sudo dpkg -i linux*.deb
 ```
 4. Reboot (if black screen reboot again).
-5. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall) and move 4.19.x kernel at first option.
+5. Open Grub Customizer and move 4.19.x kernel at first option.
 6. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
 7. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
@@ -184,7 +168,7 @@ sudo systemctl start lenovod330-10igl-webcam.service
 - Netebook mode: Press Ctrl+Shift+L until black screen dissapear.
 
 ## Multitouch
-1. Install [Touchegg](https://github.com/JoseExposito/touchegg) with [mintinstall](https://github.com/linuxmint/mintinstall)
+1. Install [Touchegg](https://github.com/JoseExposito/touchegg).
 2. Firefox touchscreen fix
 ```
 echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
@@ -196,7 +180,6 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
 2. [Issue #7](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/7): Video tearing. <br>
 No solution temporary
-3. [Issue #8](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/8): Can't get into safe mode
  
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
