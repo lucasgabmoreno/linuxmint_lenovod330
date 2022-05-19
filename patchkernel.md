@@ -14,3 +14,19 @@ I915_WRITE(MIPIO_TXESC_CLK_DIV1, (1 << (txesc1_div - 1)) & GLK_TX_ESC_CLK_DIV1_M
 I915_WRITE(MIPIO_TXESC_CLK_DIV2, (1 << (txesc2_div - 1)) & GLK_TX_ESC_CLK_DIV2_MASK);
 ```
 *Source: https://patchwork.freedesktop.org/patch/317041/*
+
+### drm_panel_orientation_quirks.c
+Find:
+```
+ 		  DMI_EXACT_MATCH(DMI_PRODUCT_VERSION, "Lenovo MIIX 320-10ICR"),
+ 		},
+ 		.driver_data = (void *)&lcd800x1280_rightside_up,
+```
+Replace:
+```
+ 		  DMI_EXACT_MATCH(DMI_PRODUCT_VERSION, "Lenovo MIIX 320-10ICR"),
+ 		},
+ 		.driver_data = (void *)&lcd800x1280_rightside_up,
+```
+
+*Source: https://lore.kernel.org/all/20211115165317.459447985@linuxfoundation.org/*
