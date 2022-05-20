@@ -30,21 +30,18 @@ Replace:
  	}, {	/* Lenovo Ideapad D330-10IGM (HD) */
  		.matches = {
  		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "81MD"),
  		  DMI_EXACT_MATCH(DMI_PRODUCT_VERSION, "Lenovo ideapad D330-10IGM"),
  		},
  		.driver_data = (void *)&lcd800x1280_rightside_up,
  	}, {	/* Lenovo Ideapad D330-10IGM (FHD) */
  		.matches = {
  		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "81H3"),
  		  DMI_EXACT_MATCH(DMI_PRODUCT_VERSION, "Lenovo ideapad D330-10IGM"),
  		},
  		.driver_data = (void *)&lcd1200x1920_rightside_up,
  	}, {	/* Lenovo Ideapad D330-10IGL (HD) */
  		.matches = {
  		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "82H0"),
  		  DMI_EXACT_MATCH(DMI_PRODUCT_VERSION, "Lenovo ideapad D330-10IGL"),
  		},
  		.driver_data = (void *)&lcd800x1280_rightside_up,
