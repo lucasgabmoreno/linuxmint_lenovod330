@@ -18,6 +18,7 @@ MODE=$(echo $(xrandr | grep '*') | awk -F " " '{print $1; exit}') # Actual Resol
 RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//') # Actual Rate Hz
 ROT=$(xrandr --query --verbose | grep "$DNAME" | cut -d ' ' -f 6) # Actual Rotate
 
-xrandr -s 0 
-xrandr --output $DNAME --auto --primary --mode $MODE --rotate $ROT 
+xrandr --output $DNAME --off
+xrandr --output $DNAME --auto
+xrandr --output $DNAME --mode $MODE --rotate $ROT 
 xrandr --output $DNAME --rate $RATE --gamma $GAMMA --brightness $BRIGHT
