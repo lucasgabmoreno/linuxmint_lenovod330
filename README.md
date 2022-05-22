@@ -1,14 +1,12 @@
-# Linux Mint in Lenovo D330
-This is a guide to install Linux Mint in Lenovo D330-10IGL as less buggy as possible.
+# Linux Mint in Lenovo Ideapad D330
+This is a guide to install Linux Mint in Lenovo D330-10IGL as less buggy as possible.<br>
 Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and flickering screen in recovery mode and nomodeset. Install [LMDE Linux Mint Debian Edition](https://www.linuxmint.com/download_lmde.php) instead.
 
 
 ## Issues
 - No standar BIOS ACPI.
-- No DP (Display Port), DSI (Display Serial Interface) instead.
 - No standar monitor resolution: 800x1280.
 - No Legacy BIOS support.
-- Newer kernels does not apply [this patch](https://patchwork.freedesktop.org/patch/317041/)
 
 
 ## Device
@@ -21,8 +19,6 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 | Storage | 64Gb EMMC |
 | RAM | 4Gb |
 | Micro SD CArd | 128 GB U3 |
-
-[*Complete device specifications...*](completedevicespecifications.md)
 
 ---
 
@@ -115,7 +111,7 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: 
 ```
-quiet splash acpi_osi=Linux acpi=force gfxpayload=800x1280 fbcon=rotate:0 i915.modeset=1 i915.runpm=1 loglevel=0  i915.enable_dc=0 i915.enable_fbc=0 i915.enable_psr=0 i915.enable_guc=0 i915.enable_dpcd_backlight=0 i915.disable_power_well=1 i915.reset=1 i915.mitigations=auto i915.fastboot=0
+quiet splash nomodeset gfxpayload=800x1280
 ```
 4. General settings > Advanced settings > Add: 
 ```
@@ -135,8 +131,7 @@ sudo dpkg -i linux*.deb
 ```
 4. Reboot (if black screen reboot again).
 5. Open Grub Customizer and move 4.19.x kernel at first option.
-6. Remove all other kernels with [mintupdate](https://github.com/linuxmint/mintupdate).
-7. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
+6. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
 ## Front webcam default & Landscape orientation default & Refresh screen shortcut
 1. Install dependencies
