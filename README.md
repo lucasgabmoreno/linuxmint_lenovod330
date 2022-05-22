@@ -160,7 +160,7 @@ sudo systemctl start lenovod330-10igl-webcam.service
 
 ## Black Screen
 - Tablet mode: Rotate device until black screen dissapear.
-- Netebook mode: Press Ctrl+Shift+L until black screen dissapear.
+- Netebook mode: Press Ctrl+Shift+R until black screen dissapear.
 
 ## Multitouch
 1. Install [Touchegg](https://github.com/JoseExposito/touchegg).
