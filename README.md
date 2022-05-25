@@ -16,6 +16,7 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 | Proccesor | Pentium | Celeron | Celeron |
 | Graphics | UHD Graphics 605 | UHD Graphics 600 | UHD Graphics 605 |
 | Resolution | 1200x1920 | 800x1280 | 800x1280 |
+| Quality | FHD | HD | HD |
 | Storage | 128 | 64 | 64 |
 | RAM | 4 | 4 | 4 |
 
@@ -28,7 +29,7 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 4. Download and install [BIOS Firmware Upgrade](https://support.lenovo.com/us/en/downloads/ds545459-bios-update-for-windows-10-64-bit-d330-10igl)
 5. Download and install [EMMC Firmware Upgrade](https://pcsupport.lenovo.com/ar/es/downloads/ds553169-wd-7550-emmc-firmware-update-to-qs14d-winbook)<br>
 
-*At your own risk, if you have the knowledge, you could dissamble the Lenovo BIOS Firmware with [this method](https://github.com/liho98/lenovo-bios-logo-extraction-guide#dependencies) and [this method](https://patrikesn.wordpress.com/2015/01/11/guide-unlocking-the-hidden-bios-pages-on-lenovo-miix-2-11/), and correct ACPI, Legacy mode enable, etc.*
+*At your own risk, if you have the knowledge, you could dissamble the Lenovo BIOS Firmware with [this method](https://github.com/liho98/lenovo-bios-logo-extraction-guide#dependencies) and [this method](https://patrikesn.wordpress.com/2015/01/11/guide-unlocking-the-hidden-bios-pages-on-lenovo-miix-2-11/), and make a better ACPI, Legacy mode enable, etc.*
 
 ## BIOS
 1. Turn off device (10 seconds power button)
@@ -112,7 +113,7 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 ```
 quiet splash nomodeset gfxpayload=800x1280
 ```
-> If 81H3, gfxpayloa must be 1200x1920<br>
+> If 81H3, gfxpayload must be 1200x1920<br>
 4. General settings > Advanced settings > Add: 
 ```
 GRUB_GFXPAYLOAD_LINUX=keep
@@ -133,23 +134,19 @@ sudo dpkg -i linux*.deb
 5. Open Grub Customizer and move 4.19.x kernel at first option.
 6. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
-## Front webcam default & Landscape orientation default & Refresh screen shortcut
+*At your own risk, if you have the knowledge, you could build your own kernel with [this patches](KERNELPATCH.md).*
+
+## Landscape orientation & rotation
 1. Install dependencies
 ```
 sudo apt-get install inotify-tools iio-sensor-proxy -y
 ```
 2. Copy and paste on terminal
 ```
-sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
-sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
 sudo wget -O /usr/bin/lenovod330-10igl-display.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-display.sh
 sudo wget -O /usr/bin/lenovod330-10igl-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-refreshscreen.sh
-sudo chmod +x /etc/systemd/system/lenovod330-10igl-webcam.service
-sudo chmod +x /usr/bin/lenovod330-10igl-webcam.sh
 sudo chmod +x /usr/bin/lenovod330-10igl-display.sh
 sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
-sudo systemctl enable lenovod330-10igl-webcam.service
-sudo systemctl start lenovod330-10igl-webcam.service
 ```
 2. Add `/usr/bin/lenovod330-10igl-display.sh` to startup
 3. Open Keyboard Settings > Shortcuts > Custom Shortcuts
@@ -157,6 +154,17 @@ sudo systemctl start lenovod330-10igl-webcam.service
 - Use `/usr/bin/lenovod330-10igl-refreshscreen.sh`
 - Add a shortcut like `Ctrl+Shift+R`
 3. Reboot.
+
+## Webcam front camera default
+Copy and paste on terminal
+```
+sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
+sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
+sudo chmod +x /etc/systemd/system/lenovod330-10igl-webcam.service
+sudo chmod +x /usr/bin/lenovod330-10igl-webcam.sh
+sudo systemctl enable lenovod330-10igl-webcam.service
+sudo systemctl start lenovod330-10igl-webcam.service
+```
 
 ## Black Screen
 - Tablet mode: Rotate device until black screen dissapear.
