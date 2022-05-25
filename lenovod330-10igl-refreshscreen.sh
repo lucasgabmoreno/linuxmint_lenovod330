@@ -19,6 +19,5 @@ RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//'
 ROT=$(xrandr --query --verbose | grep "$DNAME" | cut -d ' ' -f 6) # Actual Rotate
 
 xrandr --output $DNAME --off
-xrandr --output $DNAME --auto
 xrandr --output $DNAME --mode $MODE --rotate $ROT 
 xrandr --output $DNAME --rate $RATE --gamma $GAMMA --brightness $BRIGHT
