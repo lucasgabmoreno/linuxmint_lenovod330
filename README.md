@@ -15,7 +15,7 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 | Model | Lenovo IdeaPad D330-10IGM |Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGL |
 | Proccesor | Pentium | Celeron | Celeron |
 | Graphics | UHD Graphics 605 | UHD Graphics 600 | UHD Graphics 605 |
-| Resolution | 1920x1200 | 800x1280 | 800x1280 |
+| Resolution | 1200x1920 | 800x1280 | 800x1280 |
 | Storage | 128 | 64 | 64 |
 | RAM | 4 | 4 | 4 |
 
@@ -108,10 +108,11 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 
 ## Grub
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. General settings > Kernel parameters: 
+2. General settings > Kernel parameters: <br>
 ```
 quiet splash nomodeset gfxpayload=800x1280
 ```
+> If 81H3, gfxpayloa must be 1200x1920<br>
 4. General settings > Advanced settings > Add: 
 ```
 GRUB_GFXPAYLOAD_LINUX=keep
