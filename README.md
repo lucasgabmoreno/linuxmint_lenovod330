@@ -178,11 +178,6 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
 4. Reboot
 
-## Bugs still can't fix
-1. [Issue #6](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/6): Randomly, when rotate, shows black screen. <br>
-Temporary solution: [use this method](https://github.com/lucasgabmoreno/linuxmint_lenovod330#temporary-fix-autorotate--landscape-mode-black-screen)
-2. [Issue #7](https://github.com/lucasgabmoreno/linuxmint_lenovod330/issues/7): Video tearing. <br>
-No solution temporary
  
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
