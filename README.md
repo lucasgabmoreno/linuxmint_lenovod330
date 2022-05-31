@@ -155,6 +155,11 @@ sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
 - Add a shortcut like `Ctrl+Shift+R`
 3. Reboot.
 
+## Hibernate & suspend
+Disable hibernate and suspend options, it may cause blank screen.
+1. Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
+2. Open Screensaver and disable suspend option.
+
 ## Webcam front camera default
 Copy and paste on terminal
 ```
