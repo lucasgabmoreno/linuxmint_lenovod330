@@ -1,5 +1,5 @@
-# Linux Mint in Lenovo Ideapad D330
-This is a guide to install Linux Mint in Lenovo D330 as less buggy as possible.<br>
+# Linux Mint in Lenovo IdeaPad D330-10IGL 82H0
+This is a guide to install Linux Mint in Lenovo IdeaPad D330-10IGL 82H0 as less buggy as possible. This guide won't work in Lenovo IdeaPad D330-10IGM 81H3 (FHD version), but maybe could work in Lenovo IdeaPad D330-10IGM 81MD.<br>
 Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and flickering screen in recovery mode and nomodeset. Install [LMDE Linux Mint Debian Edition](https://www.linuxmint.com/download_lmde.php) instead.
 
 
@@ -10,15 +10,15 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 
 ## Device
-| &nbsp; | 81H3 | 81MD | 82H0 |
-| :--- | :--- | :--- | :--- |
-| Model | Lenovo IdeaPad D330-10IGM |Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGL |
-| Proccesor | Pentium | Celeron | Celeron |
-| Graphics | UHD Graphics 605 | UHD Graphics 600 | UHD Graphics 605 |
-| Resolution | 1200x1920 | 800x1280 | 800x1280 |
-| Quality | FHD | HD | HD |
-| Storage | 128 | 64 | 64 |
-| RAM | 4 | 4 | 4 |
+| &nbsp; | 81MD | 82H0 |
+| :--- | :--- | :--- |
+| Model | Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGL |
+| Proccesor | Celeron | Celeron |
+| Graphics | UHD Graphics 600 | UHD Graphics 605 |
+| Resolution | 800x1280 | 800x1280 |
+| Quality | HD | HD |
+| Storage | 64 | 64 |
+| RAM | 4 | 4 |
 
 ---
 
@@ -113,7 +113,6 @@ Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all softwa
 ```
 quiet splash nomodeset gfxpayload=800x1280
 ```
-> If 81H3, gfxpayload must be 1200x1920<br>
 4. General settings > Advanced settings > Add: 
 ```
 GRUB_GFXPAYLOAD_LINUX=keep
@@ -198,3 +197,4 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 - FreeDesktop [109267](https://bugs.freedesktop.org/show_bug.cgi?id=109267) [108826](https://bugs.freedesktop.org/show_bug.cgi?id=108826)
 - [LinuxCapable](https://www.linuxcapable.com/es/how-to-install-linux-kernel-5-17-on-linux-mint-20-lts/)
 - [Launchpad](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1838373)
+- [vvFiCKvv](https://github.com/vvFiCKvv)
