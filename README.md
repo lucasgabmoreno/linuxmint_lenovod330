@@ -104,9 +104,6 @@ If black screen, you can try:
 * Reboot again
 * Boot from USB installer and reboot again.
 
-## Update Linux Mint
-Open [mintupdate](https://github.com/linuxmint/mintupdate) and update all software
-
 ## Grub
 1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
 2. General settings > Kernel parameters: <br>
