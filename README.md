@@ -22,6 +22,20 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 ---
 
+## (Optional) Make a Windows Backup
+1. Boot Linux Mint Installer
+2. Mount an external USB storage 
+3. Open terminal and make a backup<br>
+```
+sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror
+```
+*Example: sudo dd if=/dev/mmcblk0 of="/media/mint/MyExternalStorage/Win10-d330.img" bs=4096 status=progress conv=sync,noerror*
+
+4. If you need to restore Windows<br>
+```
+sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Windows Storage] bs=4096 status=progress conv=sync,noerror
+```
+
 ## (Optional) Update BIOS and Firmware
 1. Boot Windows.
 2. [Download and install Lenovo Service Bridge](https://support.lenovo.com/solutions/ht104055).
@@ -30,6 +44,8 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 5. Download and install [EMMC Firmware Upgrade](https://pcsupport.lenovo.com/ar/es/downloads/ds553169-wd-7550-emmc-firmware-update-to-qs14d-winbook)<br>
 
 *At your own risk, if you have the knowledge, you could dissamble the Lenovo BIOS Firmware with [this method](https://github.com/liho98/lenovo-bios-logo-extraction-guide#dependencies) and [this method](https://patrikesn.wordpress.com/2015/01/11/guide-unlocking-the-hidden-bios-pages-on-lenovo-miix-2-11/), and make a better ACPI, Legacy mode enable, etc.*
+
+---
 
 ## BIOS
 1. Turn off device (10 seconds power button)
@@ -58,20 +74,6 @@ If black screen, you can try:
 
 If Screen in portrait orientation:
 * Don't force rotate in Display options yet, it will make black screen (will fix later).
-
-## (Optional) Make a Windows Backup
-1. Boot Linux Mint Installer
-2. Mount an external USB storage 
-3. Open terminal and make a backup<br>
-```
-sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror
-```
-*Example: sudo dd if=/dev/mmcblk0 of="/media/mint/MyExternalStorage/Win10-d330.img" bs=4096 status=progress conv=sync,noerror*
-
-4. If you need to restore Windows<br>
-```
-sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Windows Storage] bs=4096 status=progress conv=sync,noerror
-```
 
 ## Convert micro SD card to GPT System Partition
 1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
