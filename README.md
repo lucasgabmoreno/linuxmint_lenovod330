@@ -107,8 +107,11 @@ If black screen, you can try:
 * Boot from USB installer and reboot again.
 
 ## Grub
-1. Install Grub Customizer with [mintinstall](https://github.com/linuxmint/mintinstall)
-2. General settings > Kernel parameters: <br>
+1. Install Grub Customizer:
+```
+sudo apt install grub-customizer -y
+```
+3. General settings > Kernel parameters: <br>
 ```
 quiet splash nomodeset gfxpayload=800x1280
 ```
@@ -153,6 +156,20 @@ sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
 - Add a shortcut like `Ctrl+Shift+R`
 3. Reboot.
 
+## Tear Free
+1. Install mesa-utils:
+```
+sudo apt-get install mesa-utils -y
+```
+2. Make xorg config dir:
+```
+sudo mkdir -v /etc/X11/xorg.conf.d
+```
+3. Create intel config file:
+```
+echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "AccelMethod" "sna"\n Option "TearFree" "true"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-intel.conf
+```
+
 ## Hibernate & suspend
 Disable hibernate and suspend options, it may cause blank screen.
 1. Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
@@ -181,6 +198,17 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
 4. Reboot
 
+## Battery
+1. Download and install auto-cpufreq:
+```
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+```
+2. ChooseoOption "i"
+3. Run daemon:
+```
+auto-cpufreq --install
+```
  
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
@@ -197,3 +225,5 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 - [LinuxCapable](https://www.linuxcapable.com/es/how-to-install-linux-kernel-5-17-on-linux-mint-20-lts/)
 - [Launchpad](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1838373)
 - [vvFiCKvv](https://github.com/vvFiCKvv)
+- [Damien1307](https://forums.linuxmint.com/viewtopic.php?p=1711509&sid=ceee8993543ad8a19c2f478fe8c74826#p1711509)
+- [AdnanHodzic](https://github.com/AdnanHodzic/auto-cpufreq)
