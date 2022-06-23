@@ -200,7 +200,7 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
-2. ChooseoOption "i"
+2. Choose Option "i"
 3. Run daemon:
 ```
 auto-cpufreq --install
