@@ -122,7 +122,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
 
 ## Kernel
 1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
-2. Get into the last v4.19.x folder from the first group of links, download:
+2. Get into the last v4.19.x folder and download:
 - linux-headers-4.19.x-generic_4.19.x_amd64.deb
 - linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
 - linux-modules-4.19.x-generic_4.19.x_amd64.deb
@@ -135,12 +135,13 @@ sudo dpkg -i linux*.deb
 5. Open Grub Customizer and move 4.19.x kernel at first option.
 6. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
+*Last 4.19.x is not an older kernel, it's an up to date long term release kernel.*<br>
 *At your own risk, if you have the knowledge, you could build your own kernel with [this patches](KERNELPATCH.md).*
 
-## Landscape orientation & rotation
+## Landscape orientation & rotation & tear free
 1. Install dependencies
 ```
-sudo apt-get install inotify-tools iio-sensor-proxy -y
+sudo apt-get install inotify-tools iio-sensor-proxy mesa-utils -y
 ```
 2. Copy and paste on terminal
 ```
@@ -154,21 +155,16 @@ sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
 - Add new one called `Refresh Screen`
 - Use `/usr/bin/lenovod330-10igl-refreshscreen.sh`
 - Add a shortcut like `Ctrl+Shift+R`
-3. Reboot.
-
-## Tear Free
-1. Install mesa-utils:
-```
-sudo apt-get install mesa-utils -y
-```
-2. Make xorg config dir:
+4. Make xorg config dir:
 ```
 sudo mkdir -v /etc/X11/xorg.conf.d
 ```
-3. Create intel config file:
+5. Create intel & monitor config file:
 ```
 echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "AccelMethod" "sna"\n Option "TearFree" "true"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-intel.conf
+echo -e 'Section "Monitor"\n Identifier "DSI-1"\n Option "Rotate" "right" \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 ```
+6. Reboot.
 
 ## Hibernate & suspend
 Disable hibernate and suspend options, it may cause blank screen.
