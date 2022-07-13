@@ -23,8 +23,8 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 ---
 
 ## Windows
-* [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#optional-make-a-windows-backup)
-* [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#optional-update-bios-and-firmware)
+* [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup)
+* [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware)
 
 ---
 
