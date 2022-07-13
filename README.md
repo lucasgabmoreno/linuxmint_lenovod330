@@ -106,16 +106,24 @@ If black screen, you can try:
 * Reboot again
 * Boot from USB installer and reboot again.
 
+## Dependencies
+1. Update and Upgrade
+```
+sudo apt update -y
+sudo apt upgrade -y
+```
+2. Install
+```
+sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -y
+```
+
 ## Grub
-1. Install Grub Customizer:
-```
-sudo apt install grub-customizer -y
-```
-3. General settings > Kernel parameters: <br>
+1. Open Grub Customizer
+2. General settings > Kernel parameters: <br>
 ```
 quiet splash nomodeset gfxpayload=800x1280
 ```
-4. General settings > Advanced settings > Add: 
+3. General settings > Advanced settings > Add: 
 ```
 GRUB_GFXPAYLOAD_LINUX=keep
 ```
@@ -131,19 +139,14 @@ GRUB_GFXPAYLOAD_LINUX=keep
 ```
 sudo dpkg -i linux*.deb
 ```
-4. Reboot (if black screen reboot again).
-5. Open Grub Customizer and move 4.19.x kernel at first option.
-6. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
+4. Open Grub Customizer and move 4.19.x kernel at first option.
+5. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
 
 *Last 4.19.x is not an older kernel, it's an up to date long term release kernel.*<br>
 *At your own risk, if you have the knowledge, you could build your own kernel with [this patches](KERNELPATCH.md).*
 
 ## Landscape orientation & rotation & tear free
-1. Install dependencies
-```
-sudo apt-get install inotify-tools iio-sensor-proxy mesa-utils -y
-```
-2. Copy and paste on terminal
+1. Add files:
 ```
 sudo wget -O /usr/bin/lenovod330-10igl-display.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-display.sh
 sudo wget -O /usr/bin/lenovod330-10igl-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-refreshscreen.sh
@@ -172,7 +175,7 @@ Disable hibernate and suspend options, it may cause blank screen.
 2. Open Screensaver and disable suspend option.
 
 ## Webcam front camera default
-Copy and paste on terminal
+Add files:
 ```
 sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
 sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
@@ -184,7 +187,7 @@ sudo systemctl start lenovod330-10igl-webcam.service
 
 ## Black Screen
 - Tablet mode: Rotate device until black screen dissapear.
-- Netebook mode: Press Ctrl+Shift+R until black screen dissapear.
+- Notebook mode: Press Ctrl+Shift+R until black screen dissapear.
 
 ## Multitouch
 1. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
