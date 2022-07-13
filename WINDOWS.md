@@ -1,4 +1,5 @@
-## (Optional) Make a Windows Backup
+## Windows Backup
+This device has his own Microsoft Office and modified Lenovo's Windows licenced version. It's recommended to make backup before install other OS.
 1. Boot Linux Mint Installer
 2. Mount an external USB storage 
 3. Open terminal and make a backup<br>
@@ -12,7 +13,7 @@ sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[fi
 sudo dd if="[path to external USB storage]/[filename.img]" of=[path to 64GB Windows Storage] bs=4096 status=progress conv=sync,noerror
 ```
 
-## (Optional) Update BIOS and Firmware
+## Update BIOS and Firmware
 1. Boot Windows.
 2. [Download and install Lenovo Service Bridge](https://support.lenovo.com/solutions/ht104055).
 3. [Disable S Windows Mode](https://support.microsoft.com/en-us/windows/switching-out-of-s-mode-in-windows-4f56d9be-99ec-6983-119f-031bfb28a307).
