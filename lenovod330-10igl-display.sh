@@ -23,7 +23,7 @@ RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//'
 ROT=$(xrandr --query --verbose | grep "$DNAME" | cut -d ' ' -f 6) # Actual Rotate
 
 # New mode
-RATE_NEW=45
+RATE_NEW=-r
 MODELINE=$(cvt $MODE_WIDTH $MODE_HEIGHT $RATE_NEW | grep 'Modeline')
 MODE_NEW=$(echo $MODELINE | awk -F " " '{print $2; exit}')
 xrandr --newmode $(echo $MODELINE| awk -F " " '{print $2" "$3" "$4" "$5" "$6" "$7" "$8" "$9" "$10" "$11" "$12" "$13; exit}')
