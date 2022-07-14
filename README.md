@@ -187,7 +187,7 @@ cd auto-cpufreq && sudo ./auto-cpufreq-installer
 2. Choose Option "i"
 3. Run daemon:
 ```
-auto-cpufreq --install
+sudo auto-cpufreq --install
 ```
  
 ## Thanks:
