@@ -149,6 +149,8 @@ echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Optio
 echo -e 'Section "Monitor"\n Identifier "DSI-1"\n Option "Rotate" "right" \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 ```
 6. Reboot.
+7. Open display app
+8. Choose counter-clock wise and apply
 
 ## Hibernate & suspend
 Disable hibernate and suspend options, it may cause blank screen.
