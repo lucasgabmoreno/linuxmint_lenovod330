@@ -22,17 +22,12 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 ---
 
-## Windows
-* [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup)
-* [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware)
-
----
-
 ## BIOS
 1. Turn off device (10 seconds power button)
 2. Turn on device (5 seconds power button)
 3. Inmediattely press:
 `Fn+F2`
+
 
 ## Boot Options
 1. Turn off device
@@ -40,47 +35,40 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 3. Inmediattely press:
 `Fn+F12`
 
+---
+
 ## Disable secure boot
 1. [Access BIOS](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#bios)
 2. Disable Secure Boot
 
+
 ## Boot Linux Mint Installer
 1. [Access Boot Options](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-options)
-2. Choose USB device
-
+2. Choose USB device<br>
 If black screen, reboot again and again until working screen.<br>
 You will notice your screen in portrait orientation. Don't force rotate in Display options yet, it will make black screen (will fix when [installing kernel](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#kernel)).
-
-## Convert micro SD card to GPT System Partition
-1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
-2. Open gparted
-3. Choose micro sd card device
-4. Unmount it
-5. Remove micro sd card partitions
-6. Device > Create partition table > gpt
-7. Create an ext4 partition
-8. Edit > Apply all operations
-
-## Install Linux Mint
-1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
-2. Open Installer
-3. If you have micro SD, I recommend this partition map:<br>
+3. [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup).
+4. [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
+5. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
+6. Open Installer
+7. If you have micro SD, use this partition map:<br>
 ```
 Internal storage:
 /EFI boot partition 1024 MB logic  (Flags: boot, esp)
 / (root) (use all free space) logic
 /swap 2048 MB
 
-Micro sd card:
+Micro SD card:
 /home (use all free space) logic
 ```
+Otherwise, let Linux Mint installer automatically manage partitions on internal storage.
+8. Once installed, take off USB device and reboot
+
+---
 
 ## Boot Linux Mint
-Once installed, reboot.<br>
 When Grub, choose "recovery mode".<br>
-If black screen, you can try:
-* Reboot again
-* Boot from USB installer and reboot again.
+If black screen, reboot again and again until working screen.
 
 ## Dependencies
 1. Update and Upgrade
@@ -93,6 +81,7 @@ sudo apt upgrade -y
 sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -y
 ```
 
+
 ## Grub
 1. Open Grub Customizer
 2. General settings > Kernel parameters: <br>
@@ -104,8 +93,9 @@ quiet splash nomodeset gfxpayload=800x1280
 GRUB_GFXPAYLOAD_LINUX=keep
 ```
 
+
 ## Kernel
-1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/)
+1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/).
 2. Get into the last v4.19.x folder and download:
 - linux-headers-4.19.x-generic_4.19.x_amd64.deb
 - linux-image-unsig-4.19.x-generic_4.19.x_amd64.deb
@@ -121,7 +111,8 @@ sudo dpkg -i linux*.deb
 *Last 4.19.x is not an older kernel, it's an up to date long term release kernel.*<br>
 *At your own risk, if you have the knowledge, you could build your own kernel with [this patches](KERNELPATCH.md).*
 
-## Landscape orientation & rotation & tear free
+
+## Display
 1. Add files:
 ```
 sudo wget -O /usr/bin/lenovod330-10igl-display.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-display.sh
@@ -144,36 +135,19 @@ echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Optio
 echo -e 'Section "Monitor"\n Identifier "DSI-1"\n Option "Rotate" "right" \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 ```
 6. Reboot.
-7. Open display app
-8. Choose counter-clock wise and apply
+7. Open display app and choose counter-clock wise and apply.
+
+
+## Black Screen fix
+- Tablet mode: Rotate device until working screen.
+- Notebook mode: Press Ctrl+Shift+R until working screen.
+
 
 ## Hibernate & suspend
 Disable hibernate and suspend options, it may cause blank screen.
 1. Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
 2. Open Screensaver and disable suspend option.
 
-## Webcam front camera default
-Add files:
-```
-sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
-sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
-sudo chmod +x /etc/systemd/system/lenovod330-10igl-webcam.service
-sudo chmod +x /usr/bin/lenovod330-10igl-webcam.sh
-sudo systemctl enable lenovod330-10igl-webcam.service
-sudo systemctl start lenovod330-10igl-webcam.service
-```
-
-## Black Screen
-- Tablet mode: Rotate device until black screen dissapear.
-- Notebook mode: Press Ctrl+Shift+R until black screen dissapear.
-
-## Multitouch
-1. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
-2. Firefox touchscreen fix
-```
-echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
-```
-4. Reboot
 
 ## Battery
 1. Download and install auto-cpufreq:
@@ -186,6 +160,28 @@ cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
 sudo auto-cpufreq --install
 ```
+
+
+## Webcam
+For setting front camera as default, add these files:
+```
+sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
+sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
+sudo chmod +x /etc/systemd/system/lenovod330-10igl-webcam.service
+sudo chmod +x /usr/bin/lenovod330-10igl-webcam.sh
+sudo systemctl enable lenovod330-10igl-webcam.service
+sudo systemctl start lenovod330-10igl-webcam.service
+```
+
+
+## Multitouch
+1. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
+2. Firefox touchscreen fix
+```
+echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
+```
+4. Reboot
+
  
 ## Thanks:
 - [Lenovo Support](https://support.lenovo.com)
