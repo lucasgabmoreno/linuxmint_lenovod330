@@ -1,5 +1,5 @@
 # Linux Mint in Lenovo IdeaPad D330-10IGL 82H0
-This is a guide to install Linux Mint in Lenovo IdeaPad D330-10IGL 82H0 as less buggy as possible. This guide won't work in Lenovo IdeaPad D330-10IGM 81H3 (FHD version), but maybe could work in Lenovo IdeaPad D330-10IGM 81MD.<br>
+This guide is to install Linux Mint in Lenovo IdeaPad D330-10IGL 82H0 as less buggy as possible. This guide won't work in Lenovo IdeaPad D330-10IGM 81H3 (FHD version), but maybe could work in Lenovo IdeaPad D330-10IGM 81MD.<br>
 Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and flickering screen in recovery mode and nomodeset. Install [LMDE Linux Mint Debian Edition](https://www.linuxmint.com/download_lmde.php) instead.
 
 
@@ -35,8 +35,8 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 `Fn+F2`
 
 ## Boot Options
-1. Turn off device (10 seconds power button)
-2. Turn on device (5 seconds power button)
+1. Turn off device
+2. Turn on device
 3. Inmediattely press:
 `Fn+F12`
 
@@ -45,16 +45,11 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 2. Disable Secure Boot
 
 ## Boot Linux Mint Installer
-1. [Access boot options](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-options)
+1. [Access Boot Options](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-options)
 2. Choose USB device
 
-If black screen, you can try:
-* Reboot again
-* "ckeck the integrity medium"
-* "compatibility mode"
-
-If Screen in portrait orientation:
-* Don't force rotate in Display options yet, it will make black screen (will fix later).
+If black screen, reboot again and again until working screen.<br>
+You will notice your screen in portrait orientation. Don't force rotate in Display options yet, it will make black screen (will fix later).
 
 ## Convert micro SD card to GPT System Partition
 1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
