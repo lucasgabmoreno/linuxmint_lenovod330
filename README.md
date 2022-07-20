@@ -49,7 +49,7 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 2. Choose USB device
 
 If black screen, reboot again and again until working screen.<br>
-You will notice your screen in portrait orientation. Don't force rotate in Display options yet, it will make black screen (will fix later).
+You will notice your screen in portrait orientation. Don't force rotate in Display options yet, it will make black screen (will fix when [installing kernel](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#kernel)).
 
 ## Convert micro SD card to GPT System Partition
 1. [Boot Linux Mint Installer](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-linux-mint-installer)
