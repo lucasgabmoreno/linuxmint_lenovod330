@@ -86,7 +86,7 @@ sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -
 1. Open Grub Customizer
 2. General settings > Kernel parameters: <br>
 ```
-quiet splash nomodeset gfxpayload=800x1280
+quiet splash nomodeset video=SVIDEO-1:d gfxpayload=800x1280
 ```
 3. General settings > Advanced settings > Add: 
 ```
