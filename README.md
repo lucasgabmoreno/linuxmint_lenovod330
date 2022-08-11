@@ -143,8 +143,8 @@ xrandr -o right
 
 
 ## Black Screen fix
-- Tablet mode: Rotate device until working screen.
 - Notebook mode: Press Ctrl+Shift+R until working screen.
+- Tablet mode: Rotate device until working screen.
 
 
 ## Hibernate & suspend
