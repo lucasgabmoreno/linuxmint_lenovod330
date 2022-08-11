@@ -135,8 +135,11 @@ echo -e 'Section "ServerFlags"\n Option "BlankTime" "0"\n Option "StandbyTime" "
 echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "DRI" "3"\n Option "AccelMethod" "sna"\n Option "TearFree" "true"\n Option "VSync" "false"\n Option "TripleBuffer" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-intel.conf
 echo -e 'Section "Monitor"\n Identifier "DSI-1"\n Option "Rotate" "right" \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 ```
-6. Reboot.
-7. Open display app and choose counter-clock wise and apply.
+6. Rotate screen:
+```
+xrandr -o right
+```
+7. Reboot
 
 
 ## Black Screen fix
