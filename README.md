@@ -82,18 +82,6 @@ sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -
 ```
 
 
-## Grub
-1. Open Grub Customizer
-2. General settings > Kernel parameters: <br>
-```
-quiet splash gfxpayload=800x1280
-```
-3. General settings > Advanced settings > Add: 
-```
-GRUB_GFXPAYLOAD_LINUX=keep
-```
-
-
 ## Kernel
 1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/).
 2. Get into the last v5.4.x folder and download:
