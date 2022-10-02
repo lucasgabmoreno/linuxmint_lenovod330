@@ -83,7 +83,7 @@ sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -
 
 
 ## Kernel
-1. Download all .deb files from [last kernel release](https://github.com/lucasgabmoreno/linuxmint_lenovod330/releases).<br>
+1. Download all .deb files from [D330 kernel release](https://github.com/lucasgabmoreno/linuxmint_lenovod330/releases).<br>
 Or you can build your own D330 Kernel [following this guide](KERNELBUILD.md) 
 2. In the same folder you download, open terminal and type:
 ```
