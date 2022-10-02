@@ -7,7 +7,7 @@ Go to [Kernel.org](https://kernel.org/) and download the last longterm tarball r
 | :--- | :--- |
 | 5.15.x | not tested |
 | 5.10.x | not working |
-| 5.4.x | recommended |
+| 5.4.x | *recommended* |
 | 4.19.x | works |
 | 4.14.x | not tested |
 | 4.9.x | not tested |
@@ -75,18 +75,18 @@ Open terminal and go into kernel folder, type:
 ```
 make localmodconfig
 ```
-Press ENTER to everything
+Press ENTER to everything, then type:
 
 ```
 make menuconfig
 ```
-1- Go to "Processor type and features" remove all AMD option with SPACE key<br>
-2- Go to "General setup", into "local version" type "-d330"<br>
+1- Go to "Processor type and features" and remove all AMD options with SPACE key<br>
+2- Go into "General setup", into "local version" type "-d330"<br>
 3- Save and Exit
 
 ##  Make
+Type:
 ```
 make -j2 deb-pkg
-
 ```
 Wait for about 1 hour
