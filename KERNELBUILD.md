@@ -90,3 +90,6 @@ Type:
 make -j2 deb-pkg
 ```
 Wait for about 1 hour
+
+## Thanks:
+- [Locos por Linux](https://youtu.be/YNo9ereeao4)

@@ -83,21 +83,14 @@ sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -
 
 
 ## Kernel
-1. Go to [Ubuntu Kernel PPA Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/).
-2. Get into the last v5.4.x folder and download:
-- linux-headers-5.4.x-generic_5.4.x_amd64.deb
-- linux-image-5.4.x-generic_5.4.x_amd64.deb
-- linux-modules-5.4.x-generic_5.4.x_amd64.deb
-- linux-headers-5.4.x_5.4.x_all.deb
-3. In the same folder you download, open terminal and type:
+1. Download all .deb files from [last kernel release](https://github.com/lucasgabmoreno/linuxmint_lenovod330/releases).<br>
+Or you can build your own D330 Kernel [following this guide](KERNELBUILD.md) 
+2. In the same folder you download, open terminal and type:
 ```
 sudo dpkg -i linux*.deb
 ```
-4. Open Grub Customizer and move 5.4.x kernel at first option.
+4. Open Grub Customizer and move installed kernel at first option.
 5. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
-
-*Last 5.4.x is not an older kernel, it's an up to date long term release kernel.*<br>
-*At your own risk, if you have the knowledge, you could build your own kernel with [this patches](KERNELPATCH.md).*
 
 
 ## Display
