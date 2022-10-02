@@ -12,9 +12,6 @@
     # Keyboard bindings: Control+Shift+R
 
 
-# Lock orientation
-gsettings set org.cinnamon.settings-daemon.peripherals.touchscreen orientation-lock true
-
 BRIGHT=$(echo $(xrandr --verbose | grep 'Brightness') | awk -F " " '{print $2; exit}') # Actual Brightness
 GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}') # Actual Gamma
 DNAME=$(xrandr --listmonitors | sed -ne 's/ .* //gp') # Actual Monitor
@@ -23,6 +20,5 @@ RATE=$(echo $(xrandr | grep '*') | awk -F " " '{print $2; exit}' | sed 's/\*+//'
 ROT=$(xrandr --query --verbose | grep "$DNAME" | cut -d ' ' -f 6) # Actual Rotate
 
 xrandr --output $DNAME --off
-#xrandr --output $DNAME --mode $MODE --rotate $ROT #(since Cinnamon 5.4.9 returns to landscape rotation)
-xrandr --output $DNAME --mode $MODE --rotate right
+xrandr --output $DNAME --mode $MODE --rotate $ROT
 xrandr --output $DNAME --rate $RATE --gamma $GAMMA --brightness $BRIGHT
