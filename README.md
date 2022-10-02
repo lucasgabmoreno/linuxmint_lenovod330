@@ -96,31 +96,28 @@ sudo dpkg -i linux*.deb
 ## Display
 1. Add files:
 ```
-sudo wget -O /usr/bin/lenovod330-10igl-display.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-display.sh
 sudo wget -O /usr/bin/lenovod330-10igl-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-refreshscreen.sh
-sudo chmod +x /usr/bin/lenovod330-10igl-display.sh
 sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
 ```
-2. Add `/usr/bin/lenovod330-10igl-display.sh` to startup
-3. Open Keyboard Settings > Shortcuts > Custom Shortcuts
+2. Open Keyboard Settings > Shortcuts > Custom Shortcuts
 - Add new one called `Refresh Screen`
 - Use `/usr/bin/lenovod330-10igl-refreshscreen.sh`
 - Add a shortcut like `Ctrl+Shift+R`
-4. Make xorg config dir:
+3. Make xorg config dir:
 ```
 sudo mkdir -v /etc/X11/xorg.conf.d
 ```
-5. Create Xorg files:
+4. Create Xorg files:
 ```
 echo -e 'Section "ServerFlags"\n Option "BlankTime" "0"\n Option "StandbyTime" "0"\n Option "SuspendTime" "0"\n Option "OffTime" "0"\n Option "dpms" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/10-xorg.conf
 echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "DRI" "3"\n Option "AccelMethod" "sna"\n Option "TearFree" "true"\n Option "VSync" "false"\n Option "TripleBuffer" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-intel.conf
 echo -e 'Section "Monitor"\n Identifier "DSI-1"\n Option "Rotate" "right" \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 ```
-6. Rotate screen:
+5. Rotate screen:
 ```
 xrandr -o right
 ```
-7. Reboot
+6. Reboot
 
 
 ## Black Screen fix
