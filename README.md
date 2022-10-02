@@ -189,3 +189,4 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 - [vvFiCKvv](https://github.com/vvFiCKvv)
 - [Damien1307](https://forums.linuxmint.com/viewtopic.php?p=1711509&sid=ceee8993543ad8a19c2f478fe8c74826#p1711509)
 - [AdnanHodzic](https://github.com/AdnanHodzic/auto-cpufreq)
+- [Kevin Becker](https://kevinbecker.org/blog/category/linux)
