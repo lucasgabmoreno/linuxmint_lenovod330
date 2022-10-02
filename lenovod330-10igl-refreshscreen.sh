@@ -11,6 +11,10 @@
     # Order: /usr/bin/lenovod330-10igl-refreshscreen.sh
     # Keyboard bindings: Control+Shift+R
 
+
+# Lock orientation
+gsettings set org.cinnamon.settings-daemon.peripherals.touchscreen orientation-lock true
+
 BRIGHT=$(echo $(xrandr --verbose | grep 'Brightness') | awk -F " " '{print $2; exit}') # Actual Brightness
 GAMMA=$(echo $(xrandr --verbose | grep 'Gamma') | awk -F " " '{print $2; exit}') # Actual Gamma
 DNAME=$(xrandr --listmonitors | sed -ne 's/ .* //gp') # Actual Monitor
