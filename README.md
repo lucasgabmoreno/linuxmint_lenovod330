@@ -47,9 +47,9 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 1. [Access Boot Options](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-options)
 2. Choose USB device<br>
 If black screen, reboot again and again until working screen.<br>
-You will notice your screen in portrait orientation. Don't force rotate in Display options yet, it will make black screen (will fix when [installing kernel](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#kernel)).
-3. [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup).
-4. [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
+You will notice your screen in portrait orientation. Don't force rotate in Display options yet, will make black screen.
+3. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup).
+4. Optional: [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
 5. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
 6. Open Installer
 7. If you have micro SD, use this partition map:<br>
