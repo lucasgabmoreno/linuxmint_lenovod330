@@ -11,15 +11,15 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 
 ## Device
-| &nbsp; | 81MD | 82H0 |
-| :--- | :--- | :--- |
-| Model | Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGL |
-| Proccesor | Celeron | Celeron |
-| Graphics | UHD Graphics 600 | UHD Graphics 605 |
-| Resolution | 800x1280 | 800x1280 |
-| Quality | HD | HD |
-| Storage | 64 | 64 |
-| RAM | 4 | 4 |
+| &nbsp; | 81H3 | 81MD | 82H0 | 
+| :--- | :--- | :--- | :--- |
+| Model | Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGL |
+| Proccesor | Pentium | Celeron | Celeron |
+| Graphics | UHD Graphics 605 | UHD Graphics 600 | UHD Graphics 605 |
+| Resolution | 1920x1200 | 800x1280 | 800x1280 |
+| Quality | FHD | HD | HD |
+| Storage | 128 | 64 | 64 |
+| RAM | 4 | 4 | 4 |
 
 ---
 
