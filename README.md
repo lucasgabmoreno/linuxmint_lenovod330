@@ -1,5 +1,5 @@
 # Linux Mint in Lenovo IdeaPad D330
-This guide is to install Linux Mint in Lenovo IdeaPad D330.
+This guide is to install Linux Mint in Lenovo IdeaPad D330.<br>
 Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and flickering screen in recovery mode and nomodeset. Install [LMDE Linux Mint Debian Edition](https://www.linuxmint.com/download_lmde.php) instead.
 
 
