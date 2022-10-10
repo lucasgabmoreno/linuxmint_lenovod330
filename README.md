@@ -4,7 +4,7 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 
 ## Issues
-- No standar BIOS ACPI.
+- [No standar BIOS ACPI.](ACPI.md)
 - No standar monitor resolution for 800x1280 devices.
 - No Legacy BIOS support.
 - Xorg random black screen at init or when rotate.
