@@ -172,8 +172,14 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
 4. Reboot
 
+## Touchpad
+
+Open Keyboard Settings > Shortcuts > System > Hardware
+* Find `Toggle Touchpad state`
+* Add this shortcut `Fn+Supr` (Ctrl+Supr0xca)
+
  
-## Thanks:
+## Credits:
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
 - [Microsoft Support](https://support.microsoft.com)
