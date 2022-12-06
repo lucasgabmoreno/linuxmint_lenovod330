@@ -79,7 +79,7 @@ sudo apt upgrade -y
 ```
 2. Install
 ```
-sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git -y
+sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils -y
 ```
 
 
