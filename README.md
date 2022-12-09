@@ -4,9 +4,6 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 
 ## Issues
-- [No standar BIOS ACPI.](ACPI.md)
-- No standar monitor resolution for 800x1280 devices.
-- No Legacy BIOS support.
 - Xorg random black screen at init or when rotate.
 
 
@@ -178,7 +175,20 @@ Open Keyboard Settings > Shortcuts > System > Hardware
 * Find `Toggle Touchpad state`
 * Add this shortcut `Fn+Supr` (Ctrl+Supr0xca)
 
- 
+## ACPI
+For [ACPI startup error](ACPI.md), open LMDE grub configuration file:
+```
+sudo xed /etc/default/grub.d/50_lmde.cfg
+```
+GRUB_CMDLINE_LINUX_DEFAULT must look like this:
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3"
+```
+Open Grub Customizer > General settings > kernel parameters, and set:
+```
+quite splash loglevel=3
+```
+
 ## Credits:
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
