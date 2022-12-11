@@ -88,7 +88,9 @@ Or you can build your own D330 Kernel [following this guide](KERNELBUILD.md)
 sudo dpkg -i linux*.deb
 ```
 4. Open Grub Customizer and move installed kernel at first option.
-5. Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"
+5. Reboot
+
+*Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"*
 
 
 ## Display
