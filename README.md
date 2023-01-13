@@ -191,6 +191,17 @@ Open Grub Customizer > General settings > kernel parameters, and set:
 quite splash loglevel=3
 ```
 
+## Browsers
+For avoid browser freeze, add these files
+```
+sudo wget -O /usr/bin/browserfreeze-fix.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/browserfreeze-fix.sh
+sudo chmod +x /usr/bin/browserfreeze-fix.sh
+```
+Open startup and add
+```
+/usr/bin/browserfreeze-fix.sh
+```
+
 ## Credits:
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
