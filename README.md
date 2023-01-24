@@ -192,15 +192,12 @@ quite splash loglevel=3
 ```
 
 ## Browsers
-For avoid browser freeze, add these files
+To fix browser freeze, add these files
 ```
-sudo wget -O /usr/bin/browserfreeze-fix.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/browserfreeze-fix.sh
-sudo chmod +x /usr/bin/browserfreeze-fix.sh
+sudo wget -O /usr/bin/browserfreezefix.sh https://raw.githubusercontent.com/lucasgabmoreno/browserfreezefix/main/browserfreezefix.sh
+sudo chmod +x /usr/bin/browserfreezefix.sh
 ```
-Open startup and add
-```
-/usr/bin/browserfreeze-fix.sh
-```
+Add `/usr/bin/browserfreezefix.sh` to Startup
 
 ## Credits:
 - [Lenovo Support](https://support.lenovo.com)
