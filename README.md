@@ -184,11 +184,11 @@ sudo xed /etc/default/grub.d/50_lmde.cfg
 ```
 GRUB_CMDLINE_LINUX_DEFAULT must look like this:
 ```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 fbcon=nodefer video=efifb:nobgrt"
 ```
 Open Grub Customizer > General settings > kernel parameters, and set:
 ```
-quite splash loglevel=3
+quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 ```
 
 ## Browsers
