@@ -192,12 +192,7 @@ quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 ```
 
 ## Browsers
-To fix browser freeze, add these files
-```
-sudo wget -O /usr/bin/browserfreezefix.sh https://raw.githubusercontent.com/lucasgabmoreno/browserfreezefix/main/browserfreezefix.sh
-sudo chmod +x /usr/bin/browserfreezefix.sh
-```
-Add `/usr/bin/browserfreezefix.sh` to Startup
+To fix browser freeze use [this Browser Freeze Fix](https://github.com/lucasgabmoreno/browserfreezefix)
 
 ## Credits:
 - [Lenovo Support](https://support.lenovo.com)
