@@ -82,7 +82,7 @@ make menuconfig
 ```
 1- Go to "Processor type and features" and remove all AMD options with SPACE key<br>
 2- Go into "General setup", into "local version" type "-d330"<br>
-3- Save and Exit
+3- Save and Exit<br>
 4- Open .config file and set values:
 ```
 CONFIG_CONSOLE_LOGLEVEL_DEFAULT=3
