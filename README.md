@@ -190,6 +190,8 @@ Open Grub Customizer > General settings > kernel parameters, and set:
 ```
 quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 ```
+Into grub, don't use "Debian GNU/Linux" default as first option. It won't take kernel parameter.<br>
+Use "Debian GNU/Linux, with Linux 5.4.*-d330" instead.
 
 ## Browsers
 To fix browser freeze use [this Browser Freeze Fix](https://github.com/lucasgabmoreno/browserfreezefix)
