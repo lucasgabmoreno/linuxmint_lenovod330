@@ -81,8 +81,10 @@ sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v
 
 
 ## Kernel
-1. Download all .deb files from [D330 kernel release](https://github.com/lucasgabmoreno/linuxmint_lenovod330/releases).<br>
-Or you can build your own D330 Kernel [following this guide](KERNELBUILD.md) 
+1. Download the [last 5.4.x Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) files:
+- amd64/linux-headers-5.4.x-generic_5.4.x_amd64.deb
+- amd64/linux-image-5.4.x-generic_5.4.x_amd64.deb
+- amd64/linux-modules-5.4.x-generic_5.4.x_amd64.deb
 2. In the same folder you have downloaded kernel, open terminal and type:
 ```
 sudo dpkg -i linux*.deb
@@ -90,8 +92,8 @@ sudo dpkg -i linux*.deb
 4. Open Grub Customizer and move installed kernel at first option.
 5. Reboot
 
-*Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"*
-
+*Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"* <br>
+*You can compile your own kernel version* [following this guide to Lenovo D330](KERNELBUILD.md)
 
 ## Display
 1. Add files:
