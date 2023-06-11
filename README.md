@@ -98,12 +98,12 @@ sudo dpkg -i linux*.deb
 ## Display
 1. Add files:
 ```
-sudo wget -O /usr/bin/lenovod330-10igl-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-refreshscreen.sh
-sudo chmod +x /usr/bin/lenovod330-10igl-refreshscreen.sh
+sudo wget -O /usr/bin/lenovod330-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-refreshscreen.sh
+sudo chmod +x /usr/bin/lenovod330-refreshscreen.sh
 ```
 2. Open Keyboard Settings > Shortcuts > Custom Shortcuts
 - Add new one called `Refresh Screen`
-- Use `/usr/bin/lenovod330-10igl-refreshscreen.sh`
+- Use `/usr/bin/lenovod330-refreshscreen.sh`
 - Add a shortcut like `Ctrl+Shift+R`
 3. Make xorg config dir:
 ```
@@ -154,14 +154,24 @@ sudo auto-cpufreq --install
 
 
 ## Webcam
+You can set front camera as default or remove back camera.<br>
 For setting front camera as default, add these files:
 ```
-sudo wget -O /etc/systemd/system/lenovod330-10igl-webcam.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.service
-sudo wget -O /usr/bin/lenovod330-10igl-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-10igl-webcam.sh
-sudo chmod +x /etc/systemd/system/lenovod330-10igl-webcam.service
-sudo chmod +x /usr/bin/lenovod330-10igl-webcam.sh
-sudo systemctl enable lenovod330-10igl-webcam.service
-sudo systemctl start lenovod330-10igl-webcam.service
+sudo wget -O /etc/systemd/system/lenovod330-webcam-default-default.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-default.service
+sudo wget -O /usr/bin/lenovod330-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-default.sh
+sudo chmod +x /etc/systemd/system/lenovod330-webcam-default.service
+sudo chmod +x /usr/bin/lenovod330-webcam-default.sh
+sudo systemctl enable lenovod330-webcam-default.service
+sudo systemctl start lenovod330-webcam-default.service
+```
+For removing back camera, add these files:
+```
+sudo wget -O /etc/systemd/system/lenovod330-webcam-remove.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-remove.service
+sudo wget -O /usr/bin/lenovod330-webcam-remove.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-remove.sh
+sudo chmod +x /etc/systemd/system/lenovod330-webcam-remove.service
+sudo chmod +x /usr/bin/lenovod330-webcam-remove.sh
+sudo systemctl enable lenovod330-webcam-remove.service
+sudo systemctl start lenovod330-webcam-remove.service
 ```
 
 

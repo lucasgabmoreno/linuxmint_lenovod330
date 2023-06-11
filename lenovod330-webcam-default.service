@@ -1,0 +1,8 @@
+[Unit]
+Description=Change default webcam
+
+[Service]
+ExecStart=/usr/bin/lenovod330-webcam-default.sh
+
+[Install]
+WantedBy=multi-user.target

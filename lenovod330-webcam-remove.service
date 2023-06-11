@@ -2,7 +2,7 @@
 Description=Change default webcam
 
 [Service]
-ExecStart=/usr/bin/lenovod330-10igl-webcam.sh
+ExecStart=/usr/bin/lenovod330-webcam-remove.sh
 
 [Install]
 WantedBy=multi-user.target
