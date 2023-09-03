@@ -160,7 +160,7 @@ You can set front camera as default or remove back camera.<br>
 For setting front camera as default, add these files:
 ```
 sudo wget -O /etc/systemd/system/lenovod330-webcam-default.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-default.service
-sudo wget -O /usr/bin/lenovod330-webcam.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-default.sh
+sudo wget -O /usr/bin/lenovod330-webcam-default.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-default.sh
 sudo chmod +x /etc/systemd/system/lenovod330-webcam-default.service
 sudo chmod +x /usr/bin/lenovod330-webcam-default.sh
 sudo systemctl enable lenovod330-webcam-default.service
