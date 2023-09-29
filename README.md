@@ -23,15 +23,14 @@
 
 ---
 
-1. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup).
-2. Optional: [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
-3. Go to BIOS options and disable Secure Boot
-4. Create USB Installer with [Linux Mint Debian Edition 5](https://linuxmint.com/edition.php?id=297)
-5. Boot from USB Installer<br>
+1. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup) and [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
+2. Go to BIOS options and disable Secure Boot
+3. Create USB Installer with [Linux Mint Debian Edition 5](https://linuxmint.com/edition.php?id=297)
+4. Boot from USB Installer<br>
 > If blank screen, reboot again and again until working screen.<br>
 > You will notice your screen in portrait orientation. Don't try to rotate in Display options, will make black screen.
-6. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
-7. If you have micro SD, use this partition map:<br>
+5. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
+6. If you have micro SD, use this partition map:<br>
 ```
 Internal storage:
 /EFI boot partition 1024 MB logic  (Flags: boot, esp)
