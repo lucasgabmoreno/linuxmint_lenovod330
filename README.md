@@ -1,15 +1,11 @@
-# Linux Mint in Lenovo IdeaPad D330
-This guide is to install Linux Mint in Lenovo IdeaPad D330.<br>
-Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and flickering screen in recovery mode and nomodeset. Install [LMDE Linux Mint Debian Edition](https://www.linuxmint.com/download_lmde.php) instead.
+# Linux in Lenovo IdeaPad D330
+- OS: Linux Mint Debian Edition x86_64 (Updated to LMDE6)
+- Kernel: 5.10.0-12-amd64 (Replaced with last 5.4.x-generic mainline)<br>
+- Issues can't fix: random blank screen at boot or when rotate screen.
+> (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen)
 
-## Tested and working on
-- OS: LMDE 5 (elsie) x86_64 
-- Kernel: 5.10.0-12-amd64 (Replaced with last 5.4.x-generic mainline)
 
-## Issues
-- Xorg random black screen at init or when rotate.
-
-## Device
+## Devices
 | &nbsp; | 81H3 | 81MD | 82H0 | 
 | :--- | :--- | :--- | :--- |
 | Model | Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGM | Lenovo IdeaPad D330-10IGL |
@@ -22,35 +18,19 @@ Don't install Linux Mint Ubuntu Edition, it will cause blank screen in grub and 
 
 ---
 
-## BIOS
-1. Turn off device (10 seconds power button)
-2. Turn on device (5 seconds power button)
-3. Inmediattely press:
-`Fn+F2`
-
-
-## Boot Options
-1. Turn off device
-2. Turn on device
-3. Inmediattely press:
-`Fn+F12`
+- BIOS: Turn off [10 sec power button] > Turn on [5 sec power button] > `Fn+F2`<br>
+- Boot Options: Turn off > Turn on > `Fn+F12`
 
 ---
 
-## Disable secure boot
-1. [Access BIOS](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#bios)
-2. Disable Secure Boot
-
-
-## Boot Linux Mint Installer
-1. [Access Boot Options](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/README.md#boot-options)
-2. Choose USB device<br>
-If black screen, reboot again and again until working screen.<br>
-You will notice your screen in portrait orientation. Don't force rotate in Display options yet, will make black screen.
-3. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup).
-4. Optional: [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
-5. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
-6. Open Installer
+1. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup).
+2. Optional: [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
+3. Go to BIOS options and disable Secure Boot
+4. Create USB Installer with [Linux Mint Debian Edition 5](https://linuxmint.com/edition.php?id=297)
+5. Boot from USB Installer<br>
+> If blank screen, reboot again and again until working screen.<br>
+> You will notice your screen in portrait orientation. Don't try to rotate in Display options, will make black screen.
+6. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
 7. If you have micro SD, use this partition map:<br>
 ```
 Internal storage:
@@ -61,8 +41,7 @@ Internal storage:
 Micro SD card:
 /home (use all free space) logic
 ```
-Otherwise, let Linux Mint installer automatically manage partitions on internal storage.<br>
-8. Once installed, take off USB device and reboot
+> Otherwise, let Linux Mint installer automatically manage partitions on internal storage.
 
 ---
 
