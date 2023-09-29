@@ -1,8 +1,8 @@
 # Linux in Lenovo IdeaPad D330
-- OS: Linux Mint Debian Edition x86_64 (Updated to LMDE6)
-- Kernel: 5.10.0-12-amd64 (Replaced with last 5.4.x-generic mainline)<br>
+- OS: Linux Mint Debian Edition x86_64 (Updated to LMDE6).
+- Kernel: 5.10.0-12-amd64 (Replaced with last 5.4.x-generic mainline).<br>
 - Issues can't fix: random blank screen at boot or when rotate screen.
-> (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen)
+> (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen).
 
 
 ## Devices
@@ -18,14 +18,14 @@
 
 ---
 
-- BIOS: Turn off [10 sec power button] > Turn on [5 sec power button] > `Fn+F2`<br>
-- Boot Options: Turn off > Turn on > `Fn+F12`
+- BIOS: Turn off [10 sec power button] > Turn on [5 sec power button] > `Fn+F2`.<br>
+- Boot Options: Turn off > Turn on > `Fn+F12`.
 
 ---
 
 1. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup) and [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
-2. Go to BIOS options and disable Secure Boot
-3. Create USB Installer with [Linux Mint Debian Edition 5](https://linuxmint.com/edition.php?id=297)
+2. Go to BIOS options and disable Secure Boot.
+3. Create USB Installer with [Linux Mint Debian Edition 5](https://linuxmint.com/edition.php?id=297) ([Alternative link](https://web.archive.org/web/20230529054534/https://www.linuxmint.com/edition.php?id=297)).
 4. Boot from USB Installer<br>
 > If blank screen, reboot again and again until working screen.<br>
 > You will notice your screen in portrait orientation. Don't try to rotate in Display options, will make black screen.
