@@ -4,6 +4,7 @@
 - Issues can't fix: random blank screen at boot or when rotate screen.
 > (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen).
 
+---
 
 ## Devices
 | &nbsp; | 81H3 | 81MD | 82H0 | 
@@ -22,6 +23,8 @@
 - Boot Options: Turn off > Turn on > `Fn+F12`.
 
 ---
+
+## Install
 
 1. Optional: [Make a Windows Backup](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#windows-backup) and [Update BIOS and Firmware](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/WINDOWS.md#update-bios-and-firmware).
 2. Go to BIOS options and disable Secure Boot.
@@ -44,96 +47,67 @@ Micro SD card:
 
 ---
 
-## Boot Linux Mint
-When Grub, choose "recovery mode".<br>
-If black screen, reboot again and again until working screen.
+## Postinstall
 
-## Dependencies
-1. Update and Upgrade
+1. Start Linux Mint, if black screen, reboot again and again until screen works.
+2. Install dependencies
 ```
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y && sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils -y
 ```
-2. Install
-```
-sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils -y
-```
-
-
-## Kernel
-1. Download the [last 5.4.x Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) files:
-- amd64/linux-headers-5.4.x-generic_5.4.x_amd64.deb
-- amd64/linux-image-5.4.x-generic_5.4.x_amd64.deb
-- amd64/linux-modules-5.4.x-generic_5.4.x_amd64.deb
-2. In the same folder you have downloaded kernel, open terminal and type:
+3. Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last generic amd64 5.4.x files and install
 ```
 sudo dpkg -i linux*.deb
 ```
-4. Open Grub Customizer and move installed kernel at first option.
+4. Open `Grub Customizer` and move installed kernel at first.
 5. Reboot
-
-*Mintupdate will ask for upadte to a highter kernel. Right click and set something like "ignore all future update of this packages"* <br>
-*You can compile your own kernel version* [following this guide to Lenovo D330](KERNELBUILD.md)
-
-## Display
-1. Add files:
+6. Some fixes:
 ```
+# Refresh screen
 sudo wget -O /usr/bin/lenovod330-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-refreshscreen.sh
 sudo chmod +x /usr/bin/lenovod330-refreshscreen.sh
-```
-2. Open Keyboard Settings > Shortcuts > Custom Shortcuts
-- Add new one called `Refresh Screen`
-- Use `/usr/bin/lenovod330-refreshscreen.sh`
-- Add a shortcut like `Ctrl+Shift+R`
-3. Make xorg config dir:
-```
+# Make Xorg dir
 sudo mkdir -v /etc/X11/xorg.conf.d
-```
-4. Create Xorg files:
-```
+# Create xorg files
 echo -e 'Section "ServerFlags"\n Option "BlankTime" "0"\n Option "StandbyTime" "0"\n Option "SuspendTime" "0"\n Option "OffTime" "0"\n Option "dpms" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/10-xorg.conf
 echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "DRI" "3"\n Option "AccelMethod" "sna"\n Option "TearFree" "true"\n Option "VSync" "false"\n Option "TripleBuffer" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-intel.conf
 echo -e 'Section "Monitor"\n Identifier "DSI1"\n  Modeline "800x1280R"   75.75  800 848 880 960  1280 1283 1293 1317 +hsync -vsync \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 echo -e '# IdeaPad D330-10IGM (both 81H3 and 81MD product names)\nsensor:modalias:acpi:BOSC0200*:dmi:*:svnLENOVO:*:pvrLenovoideapadD330-10IGM:*\n ACCEL_MOUNT_MATRIX=0, 1, 0; -1, 0, 0; 0, 0, 1\n\n# IdeaPad D330-10IGL(82H0)\nsensor:modalias:acpi:BOSC0200*:dmi:*:svnLENOVO:*:pvrLenovoideapadD330-10IGL:*\n ACCEL_MOUNT_MATRIX=0, 1, 0; -1, 0, 0; 0, 0, 1' | sudo tee /etc/udev/hwdb.d/61-sensor-local.hwdb
-```
-5. Rotate screen:
-```
-xrandr -o right
-```
-6. Reset sensors
-```
+# Reset sensors
 sudo systemd-hwdb update
 sudo udevadm trigger -v -p DEVNAME=/dev/iio:device0
 sudo service iio-sensor-proxy restart
 ```
-7. Reboot
+7. Open `Keyboard Settings` > `Shortcuts` > `Custom Shortcuts` > Add new one called `Refresh Screen` > Use `/usr/bin/lenovod330-refreshscreen.sh` > Add a shortcut like `Ctrl+Shift+R`
+8. Upgrade to Linux Mint Debian Edition 6:
+```
+sudo apt update -y && sudo apt install mintupgrade -y && sudo mintupgrade
+```
+Go to options (ⵗ) and disable Timeshift then upgrade.
 
+---
 
-## Black Screen fix
+### Black Screen fix
 - Notebook mode: Press Ctrl+Shift+R until working screen.
 - Tablet mode: Rotate device until working screen.
 
-
-## Hibernate & suspend
+### Hibernate & suspend
 Disable hibernate and suspend options, it may cause blank screen.
 1. Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
 2. Open Screensaver and disable suspend option.
 
-
-## Battery
+### Battery
 1. Download and install auto-cpufreq:
 ```
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
-2. Choose Option "i"
+2. Choose Option "i".
 3. Run daemon:
 ```
 sudo auto-cpufreq --install
 ```
 
-
-## Webcam
+### Webcam
 You can set front camera as default or remove back camera.<br>
 For setting front camera as default, add these files:
 ```
@@ -154,22 +128,18 @@ sudo systemctl enable lenovod330-webcam-remove.service
 sudo systemctl start lenovod330-webcam-remove.service
 ```
 
-
-## Multitouch
+### Multitouch
 1. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
-2. Firefox touchscreen fix
+2. Firefox touchscreen fix:
 ```
 echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
-4. Reboot
 
-## Touchpad
+### Touchpad
 
-Open Keyboard Settings > Shortcuts > System > Hardware
-* Find `Toggle Touchpad state`
-* Add this shortcut `Fn+Supr` (Ctrl+Supr0xca)
+Open `Keyboard Settings` > `Shortcuts` > `System` > `Hardware` > Find `Toggle Touchpad state` > Add this shortcut `Fn+Supr` (Ctrl+Supr0xca)
 
-## ACPI
+### ACPI
 For [ACPI startup error](ACPI.md), open LMDE grub configuration file:
 ```
 sudo xed /etc/default/grub.d/50_lmde.cfg
@@ -178,17 +148,18 @@ GRUB_CMDLINE_LINUX_DEFAULT must look like this:
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 fbcon=nodefer video=efifb:nobgrt"
 ```
-Open Grub Customizer > General settings > kernel parameters, and set:
+Open `Grub Customizer` > `General settings` > `kernel parameters`, and set:
 ```
 quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 ```
-Into grub, don't use "Debian GNU/Linux" default as first option. It won't take kernel parameter.<br>
-Use "Debian GNU/Linux, with Linux 5.4.*-d330" instead.
+> Into grub, don't use "Debian GNU/Linux" default as first option. It won't take kernel parameter. Use "Debian GNU/Linux, with Linux 5.4.*" instead.
 
-## Browsers
+### Browsers
 To fix browser freeze use [this Browser Freeze Fix](https://github.com/lucasgabmoreno/browserfreezefix)
 
-## Credits:
+---
+
+### Credits:
 - [Lenovo Support](https://support.lenovo.com)
 - [Lenovo Forums](https://forums.lenovo.com/t5/Ubuntu/Linux-on-Ideapad-D330/m-p/4296738)
 - [Microsoft Support](https://support.microsoft.com)
