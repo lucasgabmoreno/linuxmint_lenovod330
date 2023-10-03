@@ -1,6 +1,6 @@
 # Linux in Lenovo IdeaPad D330
-- OS: Linux Mint Debian Edition x86_64 (Updated to LMDE6).
-- Kernel: 5.10.0-12-amd64 (Replaced with last 5.4.x-generic mainline).<br>
+- OS: Linux Mint Debian Edition 5 x86_64 (Updated to LMDE6).
+- Kernel: 5.10.0-12-amd64 (Replaced with last 5.4.x-generic mainline).
 - Issues can't fix: random blank screen at boot or when rotate screen.
 > (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen).
 
@@ -50,18 +50,19 @@ Micro SD card:
 ## Postinstall
 
 1. Start Linux Mint, if black screen, reboot again and again until screen works.
-2. Install dependencies
+2. Disable hibernate and suspend options, it may cause blank screen.
+- Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
+- Open Screensaver and disable suspend option.
+3. Open terminal and switch to admin
 ```
-sudo apt update -y && sudo apt upgrade -y && sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils -y
+sudo echo "Admin"
 ```
-3. Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last generic amd64 5.4.x files and install
+3. Install and config
 ```
-sudo dpkg -i linux*.deb
-```
-4. Open `Grub Customizer` and move installed kernel at first.
-5. Reboot
-6. Some fixes:
-```
+# Upgrade
+sudo apt update -y && sudo apt upgrade -y
+# Dependencies and fixes
+sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils -y
 # Refresh screen
 sudo wget -O /usr/bin/lenovod330-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-refreshscreen.sh
 sudo chmod +x /usr/bin/lenovod330-refreshscreen.sh
@@ -70,30 +71,36 @@ sudo mkdir -v /etc/X11/xorg.conf.d
 # Create xorg files
 echo -e 'Section "ServerFlags"\n Option "BlankTime" "0"\n Option "StandbyTime" "0"\n Option "SuspendTime" "0"\n Option "OffTime" "0"\n Option "dpms" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/10-xorg.conf
 echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "DRI" "3"\n Option "AccelMethod" "sna"\n Option "TearFree" "true"\n Option "VSync" "false"\n Option "TripleBuffer" "false"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-intel.conf
-echo -e 'Section "Monitor"\n Identifier "DSI1"\n  Modeline "800x1280R"   75.75  800 848 880 960  1280 1283 1293 1317 +hsync -vsync \nEndSection' | sudo tee /etc/X11/xorg.conf.d/30-monitor.conf
 echo -e '# IdeaPad D330-10IGM (both 81H3 and 81MD product names)\nsensor:modalias:acpi:BOSC0200*:dmi:*:svnLENOVO:*:pvrLenovoideapadD330-10IGM:*\n ACCEL_MOUNT_MATRIX=0, 1, 0; -1, 0, 0; 0, 0, 1\n\n# IdeaPad D330-10IGL(82H0)\nsensor:modalias:acpi:BOSC0200*:dmi:*:svnLENOVO:*:pvrLenovoideapadD330-10IGL:*\n ACCEL_MOUNT_MATRIX=0, 1, 0; -1, 0, 0; 0, 0, 1' | sudo tee /etc/udev/hwdb.d/61-sensor-local.hwdb
 # Reset sensors
 sudo systemd-hwdb update
 sudo udevadm trigger -v -p DEVNAME=/dev/iio:device0
 sudo service iio-sensor-proxy restart
+# Firefox gestures fix
+echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
+3. Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last 5.4.x generic amd64 files and install
+```
+sudo dpkg -i linux*.deb
+```
+4. Open `Grub Customizer` and move installed kernel at first.
+5. Reboot
 7. Open `Keyboard Settings` > `Shortcuts` > `Custom Shortcuts` > Add new one called `Refresh Screen` > Use `/usr/bin/lenovod330-refreshscreen.sh` > Add a shortcut like `Ctrl+Shift+R`
 8. Upgrade to Linux Mint Debian Edition 6:
 ```
 sudo apt update -y && sudo apt install mintupgrade -y && sudo mintupgrade
 ```
 Go to options (ⵗ) and disable Timeshift then upgrade.
+9. Remove LMDE6 default kernel
+```
+sudo apt purge *6.1.0-* -y
+```
 
 ---
 
 ### Black Screen fix
 - Notebook mode: Press Ctrl+Shift+R until working screen.
 - Tablet mode: Rotate device until working screen.
-
-### Hibernate & suspend
-Disable hibernate and suspend options, it may cause blank screen.
-1. Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
-2. Open Screensaver and disable suspend option.
 
 ### Battery
 1. Download and install auto-cpufreq:
@@ -129,11 +136,8 @@ sudo systemctl start lenovod330-webcam-remove.service
 ```
 
 ### Multitouch
-1. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
-2. Firefox touchscreen fix:
-```
-echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
-```
+Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
+
 
 ### Touchpad
 
