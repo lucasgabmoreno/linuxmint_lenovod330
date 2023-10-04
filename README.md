@@ -89,6 +89,7 @@ sudo dpkg -i linux*.deb
 sudo apt update -y && sudo apt install mintupgrade -y && sudo mintupgrade
 ```
 Go to options (ⵗ) and disable Timeshift then upgrade.
+
 6. Open `Grub Customizer` and move installed kernel at first, remove 5.10 and 6.1 but don't uninstall
 > When mintupdate ask you to upgrade 5.10 or 6.1 kernel, left click and disable future upgrades
 
