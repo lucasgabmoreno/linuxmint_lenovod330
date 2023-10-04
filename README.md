@@ -84,13 +84,14 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 sudo dpkg -i linux*.deb
 ```
 4. Open `Keyboard Settings` > `Shortcuts` > `Custom Shortcuts` > Add new one called `Refresh Screen` > Use `/usr/bin/lenovod330-refreshscreen.sh` > Add a shortcut like `Ctrl+Shift+R`
-5. Upgrade to Linux Mint Debian Edition 6:
+5. Reboot and choose 5.4.x kernel
+6. Upgrade to Linux Mint Debian Edition 6:
 ```
 sudo apt update -y && sudo apt install mintupgrade -y && sudo mintupgrade
 ```
 Go to options (ⵗ) and disable Timeshift then upgrade.
 
-6. Open `Grub Customizer` and move installed kernel at first, remove 5.10 and 6.1 but don't uninstall
+7. Open `Grub Customizer` and move installed kernel at first, remove 5.10 and 6.1 but don't uninstall
 > When mintupdate ask you to upgrade 5.10 or 6.1 kernel, left click and disable future upgrades
 
 ---
