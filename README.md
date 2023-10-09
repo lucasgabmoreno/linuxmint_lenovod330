@@ -125,12 +125,10 @@ sudo systemctl start lenovod330-webcam-default.service
 ```
 For removing back camera, add these files:
 ```
-sudo wget -O /etc/systemd/system/lenovod330-webcam-remove.service https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-remove.service
-sudo wget -O /usr/bin/lenovod330-webcam-remove.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-webcam-remove.sh
-sudo chmod +x /etc/systemd/system/lenovod330-webcam-remove.service
-sudo chmod +x /usr/bin/lenovod330-webcam-remove.sh
-sudo systemctl enable lenovod330-webcam-remove.service
-sudo systemctl start lenovod330-webcam-remove.service
+WEBCAM=$(echo $(lsusb | grep Camera\ 5M) | awk -F " " '{print $6; exit}')
+ID_VENDOR=$(echo $WEBCAM | awk -F ":" '{print $1; exit}')
+ID_PRODUCT=$(echo $WEBCAM | awk -F ":" '{print $2; exit}')
+echo -e ACTION\=\=\"add\"\, ATTR\{idVendor\}\=\=\"$ID_VENDOR\"\,\ ATTR\{idProduct\}\=\=\"$ID_PRODUCT\"\,\ RUN\=\"\/bin\/sh \-c\ \'echo\ 1\ \>\/sys\/\\\$devpath\/remove\'\" | sudo tee /etc/udev/rules.d/40-disable-internal-webcam.rules
 ```
 
 ### Multitouch
