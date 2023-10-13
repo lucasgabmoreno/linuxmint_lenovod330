@@ -1,4 +1,20 @@
-# Patch Kernel for Lenovo D330
+# Build Kernel for Lenovo D330
+
+## Download
+Go to [Kernel.org](https://kernel.org/) and download the last longterm tarball release.
+
+| Version | Status in D330 |
+| :--- | :--- |
+| 5.15.x | not tested |
+| 5.10.x | not working |
+| 5.4.x | *recommended* |
+| 4.19.x | works |
+| 4.14.x | not tested |
+| 4.9.x | not tested |
+
+
+## Patch
+Unzip, search following files and modify. 
 
 ### vlv_dsi_pll.c
 Find:
@@ -13,6 +29,7 @@ I915_WRITE(MIPIO_TXESC_CLK_DIV2, (1 << (txesc2_div - 1)) & GLK_TX_ESC_CLK_DIV2_M
 ```
 *Source: https://patchwork.freedesktop.org/patch/317041/*
 <br><br>
+
 ### drm_panel_orientation_quirks.c
 Find:
 ```
@@ -44,5 +61,36 @@ Replace:
  		},
  		.driver_data = (void *)&lcd800x1280_rightside_up,
 ```
-
 *Source: https://lore.kernel.org/all/20211115165317.459447985@linuxfoundation.org/*
+
+## Dependencies
+
+Install
+```
+sudo apt install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev dwarves liblz4-tool -y
+```
+
+## Config
+Open terminal and go into kernel folder, type:
+```
+make localmodconfig
+```
+Press ENTER to everything, then type:
+
+```
+make menuconfig
+```
+1- Go to "Processor type and features" and remove all AMD options with SPACE key<br>
+2- Go into "General setup", into "local version" type "-d330"<br>
+3- Save and Exit<br>
+
+
+##  Make
+Type:
+```
+make -j2 deb-pkg
+```
+Wait for about 1 hour
+
+## Thanks:
+- [Locos por Linux](https://youtu.be/YNo9ereeao4)
