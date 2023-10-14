@@ -32,7 +32,7 @@ sudo apt remove *6.1.0-* -y
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
-Choose Option "i".
+> Choose Option "i".
 
 7. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
 
@@ -44,7 +44,6 @@ GRUB_CMDLINE_LINUX_DEFAULT must look like this:
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 fbcon=nodefer video=efifb:nobgrt"
 ```
-To fix browser freeze use [this Browser Freeze Fix](https://github.com/lucasgabmoreno/browserfreezefix)
 
 ## Make Respin
 1. Download [Peguin Eggs](https://sourceforge.net/projects/penguins-eggs/files/DEBS/) and install
@@ -52,15 +51,15 @@ To fix browser freeze use [this Browser Freeze Fix](https://github.com/lucasgabm
 sudo dpkg -i eggs*amd64.deb
 sudo apt install -f
 ```
-Create dad
+2. Create dad
 ```
 sudo eggs dad --default
 ```
-Install Calamares
+3. Install Calamares
 ```
 sudo eggs calamares --install
 ```
-Produce
+4. Produce
 ```
 sudo eggs produce 
 ```
