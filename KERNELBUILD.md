@@ -5,15 +5,11 @@ Go to [Kernel.org](https://kernel.org/) and download the last longterm tarball r
 
 | Version | Status in D330 |
 | :--- | :--- |
-| 5.15.x | not tested |
-| 5.10.x | not working |
 | 5.4.x | *recommended* |
 | 4.19.x | works |
-| 4.14.x | not tested |
-| 4.9.x | not tested |
 
 
-## Patch
+## Patchs (last kernels has this patchs)
 Unzip, search following files and modify. 
 
 ### vlv_dsi_pll.c
@@ -27,8 +23,6 @@ Replace:
 I915_WRITE(MIPIO_TXESC_CLK_DIV1, (1 << (txesc1_div - 1)) & GLK_TX_ESC_CLK_DIV1_MASK);
 I915_WRITE(MIPIO_TXESC_CLK_DIV2, (1 << (txesc2_div - 1)) & GLK_TX_ESC_CLK_DIV2_MASK);
 ```
-*Source: https://patchwork.freedesktop.org/patch/317041/*
-<br><br>
 
 ### drm_panel_orientation_quirks.c
 Find:
@@ -61,7 +55,6 @@ Replace:
  		},
  		.driver_data = (void *)&lcd800x1280_rightside_up,
 ```
-*Source: https://lore.kernel.org/all/20211115165317.459447985@linuxfoundation.org/*
 
 ## Dependencies
 
@@ -73,6 +66,7 @@ sudo apt install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev dw
 ## Config
 Open terminal and go into kernel folder, type:
 ```
+sudo cp -v /boot/config-$(uname -r) .config
 make localmodconfig
 ```
 Press ENTER to everything, then type:
@@ -80,9 +74,7 @@ Press ENTER to everything, then type:
 ```
 make menuconfig
 ```
-1- Go to "Processor type and features" and remove all AMD options with SPACE key<br>
-2- Go into "General setup", into "local version" type "-d330"<br>
-3- Save and Exit<br>
+Save and Exit<br>
 
 
 ##  Make
@@ -92,5 +84,7 @@ make -j2 deb-pkg
 ```
 Wait for about 1 hour
 
-## Thanks:
+## Credits:
 - [Locos por Linux](https://youtu.be/YNo9ereeao4)
+- [GLK-DSI patch](https://patchwork.freedesktop.org/patch/317041/)
+- [Panel orientation Quirk](https://lore.kernel.org/all/20211115165317.459447985@linuxfoundation.org/)
