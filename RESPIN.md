@@ -18,7 +18,7 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 sudo wget -O /usr/bin/browserfreezefix.sh https://raw.githubusercontent.com/lucasgabmoreno/browserfreezefix/main/browserfreezefix.sh
 sudo chmod +x /usr/bin/browserfreezefix.sh
 ```
-4. Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last 5.4.x generic amd64 files and install
+4. Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last 5.4.x generic amd64 files and install or you can [compile your own 5.4.x linux kernel](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/KERNELBUILD.md)
 ```
 sudo dpkg -i linux*.deb
 sudo apt --fixbroken install
