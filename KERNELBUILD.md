@@ -66,7 +66,10 @@ sudo apt install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev dw
 ## Config
 Open terminal and go into kernel folder, type:
 ```
-sudo cp -v /boot/config-$(uname -r) .config
+make localmodconfig
+```
+Enter to all
+```
 make menuconfig
 ```
 Save and Exit<br>
