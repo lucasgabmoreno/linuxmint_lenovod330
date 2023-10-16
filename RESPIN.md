@@ -8,7 +8,7 @@
 # Upgrade
 sudo apt update -y && sudo apt upgrade -y
 # Dependencies and fixes
-sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils gparted -y
+sudo apt install grub-customizer inotify-tools iio-sensor-proxy mesa-utils git v4l-utils gparted boot-repair -y
 # Refresh screen
 sudo wget -O /usr/bin/lenovod330-refreshscreen.sh https://raw.githubusercontent.com/lucasgabmoreno/linuxmint_lenovod330/main/lenovod330-refreshscreen.sh
 sudo chmod +x /usr/bin/lenovod330-refreshscreen.sh
