@@ -80,7 +80,7 @@ Save and Exit<br>
 ##  Make
 Type:
 ```
-make -j2 deb-pkg
+make -j$(nproc) deb-pkg
 ```
 Wait for about 1 hour
 
