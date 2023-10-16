@@ -9,7 +9,7 @@ Go to [Kernel.org](https://kernel.org/) and download the last longterm tarball r
 | 4.19.x | works |
 
 
-## Patchs (last kernels has this patchs)
+## Patchs (last 5.4.x kernels has this patchs)
 Unzip, search following files and modify. 
 
 ### vlv_dsi_pll.c
