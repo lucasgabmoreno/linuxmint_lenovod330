@@ -69,7 +69,6 @@ sudo udevadm trigger -v -p DEVNAME=/dev/iio:device0
 sudo service iio-sensor-proxy restart
 ```
 5. Open `Keyboard Settings` > `Shortcuts` > `Custom Shortcuts` > Add new one called `Refresh Screen` > Use `/usr/bin/lenovod330-refreshscreen.sh` > Add a shortcut like `Ctrl+Shift+R`
----
 
 ### Black Screen fix
 - Notebook mode: Press Ctrl+Shift+R until working screen.
@@ -102,3 +101,11 @@ quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 
 ### Browsers
 Add `/usr/bin/browserfreezefix.sh` to Startup
+
+### Upgrade kernel
+Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last 5.4.x generic amd64 files and install.
+```
+sudo dpkg -i linux*.deb
+sudo apt --fixbroken install
+```
+
