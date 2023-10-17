@@ -2,8 +2,25 @@
 
 ## Prepare the Respin
 1. Install [LMDE](https://linuxmint.com/download_lmde.php) into Virtualbox (or other virtualization or machine)
-2. Open mintupdate and disable Kernel 6.1.0 and futures updates
-3. Install some softwares and configs
+
+2. Open mintupdate and disable Kernel 6.1.0 and futures updates, then upgrade
+
+3. Download [last v5.4.x generic amd64 kernel](https://kernel.ubuntu.com/mainline/)
+- amd64/linux-image-unsigned-5.4.x-x-generic_5.4.x-x.x_amd64.deb
+- amd64/linux-modules-5.4.x-x-generic_x-x.x_amd64.deb
+
+4. Install
+```
+sudo dpkg -i linux-*.deb
+```  
+
+5. Reboot and choose 5.4.x kernel.
+
+6. Remove 6.1.0 kernel
+```
+sudo apt remove *6.1.0-*
+```   
+7. Install some softwares and configs
 ```
 # Upgrade
 sudo apt update -y && sudo apt upgrade -y
@@ -18,18 +35,7 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 sudo wget -O /usr/bin/browserfreezefix.sh https://raw.githubusercontent.com/lucasgabmoreno/browserfreezefix/main/browserfreezefix.sh
 sudo chmod +x /usr/bin/browserfreezefix.sh
 ```
-4. Download [last v5.4.x generic amd64 kernel](https://kernel.ubuntu.com/mainline/)
-- amd64/linux-image-unsigned-5.4.x-x-generic_5.4.x-x.x_amd64.deb
-- amd64/linux-modules-5.4.x-x-generic_x-x.x_amd64.deb
-5. Install
-```
-sudo dpkg -i linux-*.deb
-```  
-6. Reboot and choose 5.4.x kernel.
-7. Remove 6.1.0 kernel
- ```
-sudo apt remove *6.1.0-*
-```   
+
 8. Install auto-cpufreq:
 ```
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
