@@ -103,5 +103,13 @@ quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 Add `/usr/bin/browserfreezefix.sh` to Startup
 
 ### Upgrade kernel
-Run mainline and install last 5.4.x
+Install mainline
+```
+sudo apt install libgee-0.8-dev libjson-glib-dev libvte-2.91-dev valac aria2 lsb-release make gettext dpkg-dev
+git clone https://github.com/bkw777/mainline.git
+cd mainline
+make
+sudo make install
+```
+Run mainline and install last 5.4.x kernel
 
