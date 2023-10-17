@@ -70,15 +70,21 @@ sudo service iio-sensor-proxy restart
 ```
 5. Open `Keyboard Settings` > `Shortcuts` > `Custom Shortcuts` > Add new one called `Refresh Screen` > Use `/usr/bin/lenovod330-refreshscreen.sh` > Add a shortcut like `Ctrl+Shift+R`
 
+---
+
 ### Black Screen fix
 - Notebook mode: Press Ctrl+Shift+R until working screen.
 - Tablet mode: Rotate device until working screen.
+
+---
 
 ### Battery
 1. Run auto-cpufreq daemon:
 ```
 sudo auto-cpufreq --install
 ```
+
+---
 
 ### Webcam
 For removing back camera, paste this on terminal:
@@ -89,8 +95,12 @@ ID_PRODUCT=$(echo $WEBCAM | awk -F ":" '{print $2; exit}')
 echo -e ACTION\=\=\"add\"\, ATTR\{idVendor\}\=\=\"$ID_VENDOR\"\,\ ATTR\{idProduct\}\=\=\"$ID_PRODUCT\"\,\ RUN\=\"\/bin\/sh \-c\ \'echo\ 1\ \>\/sys\/\\\$devpath\/remove\'\" | sudo tee /etc/udev/rules.d/40-disable-internal-webcam.rules
 ```
 
+---
+
 ### Touchpad
 Open `Keyboard Settings` > `Shortcuts` > `System` > `Hardware` > Find `Toggle Touchpad state` > Add this shortcut `Fn+Supr` (Ctrl+Supr0xca)
+
+---
 
 ### ACPI
 Open `Grub Customizer` > `General settings` > `kernel parameters`, and set:
@@ -99,8 +109,12 @@ quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 ```
 > Into grub, don't use "Debian GNU/Linux" default as first option. It won't take kernel parameter. Use "Debian GNU/Linux, with Linux 5.4.*" instead.
 
+---
+
 ### Browsers
 Add `/usr/bin/browserfreezefix.sh` to Startup
+
+---
 
 ### Upgrade kernel
 Install mainline
