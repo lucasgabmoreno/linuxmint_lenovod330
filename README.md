@@ -103,9 +103,5 @@ quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 Add `/usr/bin/browserfreezefix.sh` to Startup
 
 ### Upgrade kernel
-Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last 5.4.x generic amd64 files and install.
-```
-sudo dpkg -i linux*.deb
-sudo apt --fixbroken install
-```
+Run mainline and install last 5.4.x
 
