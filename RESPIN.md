@@ -18,17 +18,18 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 sudo wget -O /usr/bin/browserfreezefix.sh https://raw.githubusercontent.com/lucasgabmoreno/browserfreezefix/main/browserfreezefix.sh
 sudo chmod +x /usr/bin/browserfreezefix.sh
 ```
-4. Install mainline
+4. Download [last v5.4.x generic amd64 kernel](https://kernel.ubuntu.com/mainline/)
+- amd64/linux-image-unsigned-5.4.x-x-generic_5.4.x-x.x_amd64.deb
+- amd64/linux-modules-5.4.x-x-generic_x-x.x_amd64.deb
+5. Install
 ```
-sudo apt install libgee-0.8-dev libjson-glib-dev libvte-2.91-dev valac aria2 lsb-release make gettext dpkg-dev
-git clone https://github.com/bkw777/mainline.git
-cd mainline
-make
-sudo make install
-```
-5. Run mainline and install last 5.4.x kernel
+sudo dpkg -i linux-*.deb
+```  
 6. Reboot and choose 5.4.x kernel.
-7. Run mainline and remove 6.1.0 kernel
+7. Remove 6.1.0 kernel
+ ```
+sudo apt remove *6.1.0-*
+```   
 8. Install auto-cpufreq:
 ```
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
@@ -46,6 +47,8 @@ GRUB_CMDLINE_LINUX_DEFAULT must look like this:
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 fbcon=nodefer video=efifb:nobgrt"
 ```
+
+---
 
 ## Make Respin
 1. Download [Peguin Eggs](https://sourceforge.net/projects/penguins-eggs/files/DEBS/) and install
