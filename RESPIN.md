@@ -18,25 +18,27 @@ echo export MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 sudo wget -O /usr/bin/browserfreezefix.sh https://raw.githubusercontent.com/lucasgabmoreno/browserfreezefix/main/browserfreezefix.sh
 sudo chmod +x /usr/bin/browserfreezefix.sh
 ```
-4. Go to [Ubuntu's Kernel Mainline](https://kernel.ubuntu.com/~kernel-ppa/mainline/) and download the last 5.4.x generic amd64 files and install or you can [compile your own 5.4.x linux kernel](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/KERNELBUILD.md)
+4. Install mainline
 ```
-sudo dpkg -i linux*.deb
-sudo apt --fixbroken install
+sudo apt install libgee-0.8-dev libjson-glib-dev libvte-2.91-dev valac aria2 lsb-release make gettext dpkg-dev
+git clone https://github.com/bkw777/mainline.git
+cd mainline
+make
+sudo make install
 ```
-5. Reboot and choose 5.4.x kernel
-```
-sudo apt remove *6.1.0-* -y
-```
-6. Install auto-cpufreq:
+5. Run mainline and install last 5.4.x kernel
+6. Reboot and choose 5.4.x kernel.
+7. Run mainline and remove 6.1.0 kernel
+8. Install auto-cpufreq:
 ```
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 ```
 > Choose Option "i".
 
-7. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
+9. Install [Touchegg](https://github.com/JoseExposito/touchegg/releases/latest).
 
-8. For [ACPI startup error](ACPI.md), open LMDE grub configuration file:
+10. For [ACPI startup error](ACPI.md), open LMDE grub configuration file:
 ```
 sudo xed /etc/default/grub.d/50_lmde.cfg
 ```
