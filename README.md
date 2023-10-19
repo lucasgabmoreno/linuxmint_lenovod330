@@ -108,13 +108,10 @@ Add `/usr/bin/browserfreezefix.sh` to Startup
 ---
 
 ### Upgrade kernel
-Install mainline
+1. Download [last v5.4.x generic amd64 kernel](https://kernel.ubuntu.com/mainline/)
+- amd64/linux-image-unsigned-5.4.x-x-generic_5.4.x-x.x_amd64.deb
+- amd64/linux-modules-5.4.x-x-generic_x-x.x_amd64.deb
+2. Install
 ```
-sudo apt install libgee-0.8-dev libjson-glib-dev libvte-2.91-dev valac aria2 lsb-release make gettext dpkg-dev
-git clone https://github.com/bkw777/mainline.git
-cd mainline
-make
-sudo make install
-```
-Run mainline and install last 5.4.x kernel
-
+sudo dpkg -i linux-*.deb
+```  
