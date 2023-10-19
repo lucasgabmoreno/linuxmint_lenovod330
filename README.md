@@ -32,8 +32,8 @@
 4. Boot from USB Installer<br>
 > If blank screen, reboot again and again until working screen.<br>
 > You will notice your screen in portrait orientation. Don't try to rotate in Display options, will make black screen.
-5. If you have a micro SD card for home partition, [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
-6. If you have micro SD, use this partition map:<br>
+5. If you have a micro SD card for home partition, run Gparted and [convert it to GPT System Partition](https://github.com/lucasgabmoreno/linuxmint_lenovod330/blob/main/GPT.md).
+6. If you have micro SD, use this partition map using Gparted:<br>
 ```
 Internal storage:
 /EFI boot partition 1024 MB logic  (Flags: boot, esp)
@@ -43,8 +43,8 @@ Internal storage:
 Micro SD card:
 /home (use all free space) logic
 ```
-> Otherwise, let Linux Mint installer automatically manage partitions on internal storage.
-
+> Otherwise, let Calamares manage partitions on internal storage.
+7. Run Calamares and install
 ---
 
 ## Postinstall
