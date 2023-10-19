@@ -102,15 +102,6 @@ Open `Keyboard Settings` > `Shortcuts` > `System` > `Hardware` > Find `Toggle To
 
 ---
 
-### ACPI
-Open `Grub Customizer` > `General settings` > `kernel parameters`, and set:
-```
-quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
-```
-> Into grub, don't use "Debian GNU/Linux" default as first option. It won't take kernel parameter. Use "Debian GNU/Linux, with Linux 5.4.*" instead.
-
----
-
 ### Browsers
 Add `/usr/bin/browserfreezefix.sh` to Startup
 
