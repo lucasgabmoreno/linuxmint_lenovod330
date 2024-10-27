@@ -120,7 +120,6 @@ sudo make install
 ```
 2. Upgrade
 ```
-mainline uninstall-old
 KERNEL=$(grep ^5.4 <<< $(mainline list --previous-majors all))
 mainline install $(echo "${KERNEL}" | head -1) --include-all
 ```
