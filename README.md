@@ -121,5 +121,5 @@ sudo make install
 2. Upgrade
 ```
 KERNEL=$(grep ^5.4 <<< $(mainline list --previous-majors all))
-mainline install $(echo "${KERNEL}" | head -1) --include-all
+sudo mainline install $(echo "${KERNEL}" | head -1) --include-all
 ```
