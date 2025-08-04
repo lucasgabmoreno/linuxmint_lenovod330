@@ -1,4 +1,10 @@
+> [!WARNING]  
+> Discontinued project, follow this one instead [Linux on Lenovo D330](https://github.com/lucasgabmoreno/linux-lenovo-d330)
+
 # Linux in Lenovo IdeaPad D330
+
+
+
 - OS: Linux Mint Debian Edition 6 x86_64.
 - Kernel: 5.4.x
 - Issues can't fix: random blank screen at boot or when rotate screen.
