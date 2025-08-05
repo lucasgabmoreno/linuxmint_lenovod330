@@ -1,6 +1,3 @@
-> [!WARNING]  
-> Discontinued project, follow this one instead [Linux on Lenovo D330](https://github.com/lucasgabmoreno/linux-lenovo-d330)
-
 # Linux in Lenovo IdeaPad D330
 
 
