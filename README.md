@@ -1,10 +1,8 @@
 # Linux in Lenovo IdeaPad D330
 
-
-
-- OS: Linux Mint Debian Edition 6 x86_64.
+- OS: Modded Linux Mint Debian Edition x86_64.
 - Kernel: 5.4.x
-- Issues can't fix: random blank screen at boot or when rotate screen.
+- Issues can't fix: does not recover after a suspension and random blank screen at boot or when rotate screen.
 > (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen).
 
 ---
