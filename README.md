@@ -42,9 +42,6 @@ Internal storage:
 /EFI boot partition 1024 MB logic  (Flags: boot, esp)
 / (root) (use all free space) logic
 /swap 2048 MB
-
-Micro SD card:
-/home (use all free space) logic
 ```
 > Otherwise, let Calamares manage partitions on internal storage.
 7. Run Calamares and install
@@ -54,8 +51,20 @@ Micro SD card:
 
 1. Start Linux Mint, if black screen, reboot again and again until screen works.
 2. Disable hibernate and suspend options, it may cause blank screen.
-- Open Power Managment and disable all hibernate and suspend options to "never" or "do nothing".
-- Open Screensaver and disable suspend option.
+```
+# Power managment settings
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-battery-action 'nothing'
+gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-ac-action 'nothing'
+gsettings set org.cinnamon.settings-daemon.plugins.power button-power 'shutdown'
+gsettings set org.cinnamon.settings-daemon.plugins.power critical-battery-action 'nothing'
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
+# Screensaver settings
+gsettings set org.cinnamon.desktop.screensaver lock-enabled false
+gsettings set org.cinnamon.settings-daemon.plugins.power lock-on-suspend false
+```
 3. Open terminal and switch to admin
 ```
 sudo echo "Admin"
