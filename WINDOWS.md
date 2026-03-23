@@ -2,7 +2,7 @@
 This device has his own Microsoft Office and modified Lenovo's Windows licenced version. It's recommended to make backup before install other OS.
 1. Boot Linux Mint Installer
 2. Mount an external USB storage 
-3. Open terminal and make a backup<br>
+3. Open terminal and make a backup (pass:evolution):<br> 
 ```
 sudo dd if=[path to 64GB Windows Storage] of="[path to external USB storage]/[filename.img]" bs=4096 status=progress conv=sync,noerror
 ```
