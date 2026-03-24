@@ -5,7 +5,7 @@
 
 ---
 
-- OS: Linux Mint Debian Edition x86_64 7.
+- OS: Linux Mint Debian Edition 7 x86_64.
 - Kernel: 6.12.x
 - Issues can't fix: does not recover after a suspension and random blank screen at boot or when rotate screen.
 > (Other distros, kernels and drivers may not work, cause flickering screen or permanent blank screen).
