@@ -163,5 +163,5 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 fbcon=nodefer video=efifb:no
 ```
 Open `Grub Customizer` > `General settings` > `kernel parameters`, and set:
 ```
-quite splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
+quiet splash loglevel=3 fbcon=nodefer video=efifb:nobgrt
 ```
